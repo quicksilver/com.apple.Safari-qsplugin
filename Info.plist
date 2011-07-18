@@ -16,6 +16,8 @@
 	<string>BNDL</string>
 	<key>CFBundleVersion</key>
 	<string>12B</string>
+	<key>CFBundleShortVersionString</key>
+	<string>2.0.0</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2004, Blacktree, Inc.</string>
 	<key>QSPlugIn</key>
