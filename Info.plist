@@ -17,7 +17,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>2.1.0</string>
 	<key>CFBundleVersion</key>
-	<string>12F</string>
+	<string>130</string>
 	<key>QSActions</key>
 	<dict>
 		<key>QSSafariAddToReadingListAction</key>
@@ -31,7 +31,7 @@
 				<string>Apple URL pasteboard type</string>
 			</array>
 			<key>icon</key>
-			<string>com.apple.Safari</string>
+			<string>SafariBookmarkReadingListIcon</string>
 			<key>name</key>
 			<string>Add to Reading List</string>
 		</dict>
@@ -228,6 +228,20 @@
 			<string>com.apple.Safari</string>
 			<key>resource</key>
 			<string>tiny_menu.tiff</string>
+		</dict>
+		<key>SafariBookmarkRSSIcon</key>
+		<dict>
+			<key>bundle</key>
+			<string>com.apple.Safari</string>
+			<key>resource</key>
+			<string>ShowRSSButton@2x.png</string>
+		</dict>
+		<key>SafariBookmarkReadingListIcon</key>
+		<dict>
+			<key>bundle</key>
+			<string>com.apple.Safari</string>
+			<key>resource</key>
+			<string>ReadingList-GlassesSmall.pdf</string>
 		</dict>
 	</dict>
 </dict>

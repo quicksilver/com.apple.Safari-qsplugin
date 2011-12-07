@@ -148,31 +148,23 @@
 
 - (BOOL)loadIconForObject:(QSObject *)object {
 	NSDictionary *dict = [object objectForType:@"qs.safari.bookmarkGroup"];
-	NSString *uuid = [dict objectForKey:@"WebBookmarkUUID"];
+	NSString *title = [dict objectForKey:@"Title"];
 	
-	if ([uuid isEqualToString:@"Bookmarks Menu ID"]) {
-		[object setIcon:[QSResourceManager imageNamed:@"SafariBookmarkMenuIcon"]]; 	
-		return YES;
-	}
-	if ([uuid isEqualToString:@"Bookmarks Bar ID"]) {
-		[object setIcon:[QSResourceManager imageNamed:@"SafariBookmarkBarIcon"]]; 	
-		return YES;
-	}
+	NSDictionary *iconMap = [NSDictionary dictionaryWithObjectsAndKeys:
+							 @"SafariBookmarkMenuIcon", @"BookmarksMenu",
+							 @"SafariBookmarkBarIcon", @"BookmarksBar",
+							 @"Recent", @"History",
+							 @"Bonjour", @"Bonjour",
+							 @"com.apple.AddressBook", @"Address Book",
+							 @"SafariBookmarkRSSIcon", @"All RSS Feeds",
+							 @"SafariBookmarkReadingListIcon", @"com.apple.ReadingList",
+							 nil];
 	
-	NSString *ident = [dict objectForKey:@"WebBookmarkIdentifier"];
-	if ([ident isEqualToString:@"History Bookmark Proxy Identifier"]) {
-		[object setIcon:[QSResourceManager imageNamed:@"Recent"]]; 	
+	NSString *icon = [iconMap objectForKey:title];
+	if (icon) {
+		[object setIcon:[QSResourceManager imageNamed:icon]];
 		return YES;
 	}
-	if ([ident isEqualToString:@"Bonjour Bookmark Proxy Identifier"]) {
-		[object setIcon:[QSResourceManager imageNamed:@"Bonjour"]]; 	
-		return YES;
-	}
-	if ([ident isEqualToString:@"Address Book Bookmark Proxy Identifier"]) {
-		[object setIcon:[QSResourceManager imageNamed:@"com.apple.AddressBook"]]; 	
-		return YES;
-	}
-	
 	return NO;
 }
 
