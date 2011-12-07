@@ -86,6 +86,7 @@
 	NSDictionary *dict = [object objectForType:@"qs.safari.bookmarkGroup"];
 	NSString *type = [dict objectForKey:@"WebBookmarkType"];
 	NSString *ident = [dict objectForKey:@"WebBookmarkIdentifier"];
+	//NSLog(@"bookmark type: %@ and ID: %@", type, ident);
 	
 	NSArray *children = nil;
 	
@@ -93,12 +94,12 @@
 		id parser = [[[QSSafariBookmarksParser alloc] init] autorelease];
 		children = [parser safariBookmarksForDict:dict deep:NO includeProxies:YES];
 		
-	} else if ([ident isEqualToString:@"History Bookmark Proxy Identifier"]) {
+	} else if ([ident isEqualToString:@"History"]) {
 		QSCatalogEntry *theEntry = [QSLib entryForID:@"QSPresetSafariHistory"];
 		children = [theEntry contentsScanIfNeeded:YES];
-	} else if ([ident isEqualToString:@"Bonjour Bookmark Proxy Identifier"]) {
+	} else if ([ident isEqualToString:@"Bonjour"]) {
 		return NO;
-	} else if ([ident isEqualToString:@"Address Book Bookmark Proxy Identifier"]) {
+	} else if ([ident isEqualToString:@"Address Book"]) {
 		children = [[QSReg getClassInstance:@"QSAddressBookObjectSource"] performSelector:@selector(contactWebPages)];
 	}
 	
