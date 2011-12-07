@@ -11,27 +11,29 @@
 //#import <QSCore/QSMacros.h>
 @implementation QSSafariObjectHandler
 
-- (void)performJavaScript:(NSString *)jScript {
-	//NSLog(@"JAVASCRIPT perform: %@", jScript);
-	NSDictionary *errorDict = nil;
-	NSAppleScript *script = [[[NSAppleScript alloc] initWithSource:[NSString stringWithFormat:@"tell application \"Safari\" to do JavaScript \"%@\" in document 1", jScript]]autorelease];
-	if (errorDict) NSLog(@"Load Script: %@", [errorDict objectForKey:@"NSAppleScriptErrorMessage"]);
-	else [script executeAndReturnError:&errorDict];
-	if (errorDict) NSLog(@"Run Script: %@", [errorDict objectForKey:@"NSAppleScriptErrorMessage"]);
+- (void)performJavaScript:(NSString *)jScript
+{
+	SafariApplication *Safari = [self getSafari];
+	SafariTab *frontTab = [[[Safari windows] objectAtIndex:0] currentTab];
+	[Safari doJavaScript:jScript in:frontTab];
 }
 
-
-
-- (id)resolveProxyObject:(id)proxy {	
-	if (!QSAppIsRunning(@"com.apple.Safari") ) return nil;
-	NSAppleScript *script = [[[NSAppleScript alloc] initWithSource:@"tell application \"Safari\" to if (count documents) > 0 then URL of front document"] autorelease]; 	
-	NSString *url = [[script executeAndReturnError:nil] stringValue];
-	if (url)
-		return [QSObject URLObjectWithURL:url title:nil];
+- (id)resolveProxyObject:(id)proxy
+{
+	SafariApplication *Safari = [self getSafari];
+	if ([Safari isRunning]) {
+		NSString *url = [[[[Safari windows] objectAtIndex:0] currentTab] URL];
+		if (url) {
+			return [QSObject URLObjectWithURL:url title:nil];
+		}
+	}
 	return nil;
 }
 
-
+- (SafariApplication *)getSafari
+{
+	return [SBApplication applicationWithBundleIdentifier:@"com.apple.Safari"];
+}
 
 - (BOOL)loadChildrenForObject:(QSObject *)object {
 	if ([[object primaryType] isEqualToString:NSFilenamesPboardType]) {
