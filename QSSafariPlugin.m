@@ -1,5 +1,8 @@
 #import "QSSafariPlugin.h"
 
+// TODO better handling for Reading List in the catalog
+// TODO provide a way to view all open pages
+
 @implementation QSSafariObjectHandler
 
 - (void)performJavaScript:(NSString *)jScript
@@ -33,6 +36,22 @@
 	return [SBApplication applicationWithBundleIdentifier:@"com.apple.Safari"];
 }
 
+- (BOOL)indexIsValidFromDate:(NSDate *)indexDate forEntry:(NSDictionary *)theEntry
+{
+	return NO;
+}
+
+- (NSArray *)objectsForEntry:(NSDictionary *)theEntry
+{
+	if ([[theEntry objectForKey:@"ID"] isEqualToString:@"QSPresetSafariOpenPages"]) {
+		QSObject *currentPages = [QSObject makeObjectWithIdentifier:@"QSSafariOpenPages"];
+		[currentPages setName:@"Open Web Pages (Safari)"];
+		[currentPages setPrimaryType:@"qs.safari.openPages"];
+		return [NSArray arrayWithObject:currentPages];
+	}
+	return nil;
+}
+
 - (BOOL)loadChildrenForObject:(QSObject *)object {
 	if ([[object primaryType] isEqualToString:NSFilenamesPboardType]) {
 		[object setChildren:[self safariChildren]];
@@ -43,6 +62,27 @@
         [object setChildren:[NSArray arrayWithObject:realObject]];
         return YES;
     }
+	if ([[object primaryType] isEqualToString:@"qs.safari.openPages"]) {
+		SafariApplication *Safari = [self getSafari];
+		if ([Safari isRunning]) {
+			NSMutableArray *openPages = [NSMutableArray arrayWithCapacity:1];
+			NSString *url;
+			NSString *title;
+			QSObject *page;
+			for (SafariWindow *openWindow in [Safari windows]) {
+				for (SafariTab *openTab in [openWindow tabs]) {
+					url = [openTab URL];
+					title = [openTab name];
+					page = [QSObject URLObjectWithURL:url title:title];
+					[openPages addObject:page];
+				}
+			}
+			[object setChildren:openPages];
+			return YES;
+		} else {
+			return NO;
+		}
+	}
 	NSDictionary *dict = [object objectForType:@"qs.safari.bookmarkGroup"];
 	NSString *type = [dict objectForKey:@"WebBookmarkType"];
 	NSString *ident = [dict objectForKey:@"WebBookmarkIdentifier"];
@@ -99,7 +139,11 @@
 
 // Object Handler Methods
 - (void)setQuickIconForObject:(QSObject *)object {
-    [object setIcon:[QSResourceManager imageNamed:@"GenericFolderIcon"]];
+	if ([[object primaryType] isEqualToString:@"qs.safari.openPages"]) {
+		[object setIcon:[QSResourceManager imageNamed:@"com.apple.Safari"]];
+	} else {
+		[object setIcon:[QSResourceManager imageNamed:@"GenericFolderIcon"]];
+	}
 }
 
 - (BOOL)loadIconForObject:(QSObject *)object {

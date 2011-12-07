@@ -17,7 +17,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>2.1.0</string>
 	<key>CFBundleVersion</key>
-	<string>12E</string>
+	<string>12F</string>
 	<key>QSActions</key>
 	<dict>
 		<key>QSSafariAddToReadingListAction</key>
@@ -88,6 +88,16 @@
 				</dict>
 				<dict>
 					<key>ID</key>
+					<string>QSPresetSafariOpenPages</string>
+					<key>icon</key>
+					<string>SafariHistoryIcon</string>
+					<key>name</key>
+					<string>Pages Open in Safari</string>
+					<key>source</key>
+					<string>QSSafariObjectHandler</string>
+				</dict>
+				<dict>
+					<key>ID</key>
 					<string>QSPresetSafariHistory</string>
 					<key>enabled</key>
 					<false/>
@@ -148,6 +158,13 @@
 		<dict>
 			<key>qs.safari.bookmarkGroup</key>
 			<string>QSSafariObjectHandler</string>
+			<key>qs.safari.openPages</key>
+			<string>QSSafariObjectHandler</string>
+		</dict>
+		<key>QSObjectSources</key>
+		<dict>
+			<key>QSSafariObjectHandler</key>
+			<string>QSSafariObjectHandler</string>
 		</dict>
 		<key>QSProxies</key>
 		<dict>
@@ -178,6 +195,16 @@
 					<string>Apple URL pasteboard type</string>
 					<string>NSStringPboardType</string>
 				</array>
+			</dict>
+		</dict>
+		<key>QSTypeDefinitions</key>
+		<dict>
+			<key>qs.safari.openPages</key>
+			<dict>
+				<key>icon</key>
+				<string>com.apple.Safari</string>
+				<key>name</key>
+				<string>Open Web Pages Container</string>
 			</dict>
 		</dict>
 		<key>QSWebBrowserMediators</key>
