@@ -1,14 +1,5 @@
-
-
 #import "QSSafariPlugin.h"
-//#import <QSCore/QSCore.h>
-//
-//#import <QSCore/QSObject_FileHandling.h>
-//#import <QSCore/QSObject_URLHandling.h>
-//
-//#import <QSCore/QSLibrarian.h>
-//#import <QSCore/QSTypes.h>
-//#import <QSCore/QSMacros.h>
+
 @implementation QSSafariObjectHandler
 
 - (void)performJavaScript:(NSString *)jScript
@@ -134,17 +125,19 @@
 	return NO;
 }
 
-
 @end
 
 @implementation QSSafariBookmarksParser
+
 - (BOOL)validParserForPath:(NSString *)path {
     return [[path lastPathComponent] isEqualToString:@"Bookmarks.plist"];
 }
+
 - (NSArray *)objectsFromPath:(NSString *)path withSettings:(NSDictionary *)settings {
     NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile: [path stringByStandardizingPath]];
     return [self safariBookmarksForDict:dict deep:YES includeProxies:NO];
 }
+
 - (NSArray *)safariBookmarksForDict:(NSDictionary *)dict deep:(BOOL)deep includeProxies:(BOOL)proxies {
     NSMutableArray *array = [NSMutableArray arrayWithCapacity:1];
 	NSString *title = [dict objectForKey:@"Title"];
@@ -211,14 +204,13 @@
 	
 	return group;
 }
+
 - (QSObject *)bookmarkLeafObjectForDict:(NSDictionary *)dict {
 	NSString *url = [dict objectForKey:@"URLString"];
 	NSString *title = [[dict objectForKey:@"URIDictionary"] objectForKey:@"title"];
 	QSObject *leaf = [QSObject URLObjectWithURL:url title:title];
 	return leaf;
 }
-
-
 
 @end
 
@@ -248,4 +240,3 @@
 }
 
 @end
-
