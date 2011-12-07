@@ -17,7 +17,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>2.1.0</string>
 	<key>CFBundleVersion</key>
-	<string>130</string>
+	<string>131</string>
 	<key>QSActions</key>
 	<dict>
 		<key>QSSafariAddToReadingListAction</key>
@@ -39,14 +39,34 @@
 	<key>QSPlugIn</key>
 	<dict>
 		<key>author</key>
-		<string>Blacktree, Inc.</string>
+		<string>Alcor, Rob McBroom</string>
 		<key>categories</key>
 		<array>
 			<string>Web</string>
 			<string>Applications</string>
 		</array>
 		<key>description</key>
-		<string>Bookmarks and History</string>
+		<string>Access to information from the Safari browser</string>
+		<key>extendedDescription</key>
+		<string>&lt;h2 id=&quot;catalog&quot;&gt;Catalog&lt;/h2&gt;
+
+&lt;p&gt;The Safari plug-in allows you to index your Safari bookmarks and history. You can locate these items by searching in Quicksilver, or by selecting Safari and hitting → or /.&lt;/p&gt;
+
+&lt;p&gt;It also provides access to all currently open pages. Select &amp;#8220;Open Web Pages&amp;#8221; in the first pane and hit → or /.&lt;/p&gt;
+
+&lt;h3 id=&quot;proxy_objects&quot;&gt;Proxy Objects&lt;/h3&gt;
+
+&lt;p&gt;There are two proxy objects: Current Web Page and Search Current Website&lt;/p&gt;
+
+&lt;p&gt;Current Web Page gives you quick access to the URL of the active window/tab in Safari.&lt;/p&gt;
+
+&lt;p&gt;Search Current Site adds a new Web Search to your catalog that allows you to search (using Google) the entire site currently active in Safari.&lt;/p&gt;
+
+&lt;h2 id=&quot;actions&quot;&gt;Actions&lt;/h2&gt;
+
+&lt;h4 id=&quot;add_to_reading_list&quot;&gt;Add to Reading List&lt;/h4&gt;
+
+&lt;p&gt;With a URL selected in Quicksilver&amp;#8217;s first pane, you can quickly add it to Safari&amp;#8217;s Reading List.&lt;/p&gt;</string>
 		<key>icon</key>
 		<string>com.apple.Safari</string>
 		<key>relatedBundles</key>
