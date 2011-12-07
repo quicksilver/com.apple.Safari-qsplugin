@@ -6,7 +6,11 @@
 //
 
 #import <QSCore/QSCore.h>
+#import "Safari.h"
 
 @interface QSSafariActionProvider : QSActionProvider
+
+- (QSObject *)addToReadingList:(QSObject *)dObject;
+- (SafariApplication *)getSafari;
 
 @end

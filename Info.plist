@@ -17,9 +17,25 @@
 	<key>CFBundleShortVersionString</key>
 	<string>2.1.0</string>
 	<key>CFBundleVersion</key>
-	<string>12D</string>
-	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2004, Blacktree, Inc.</string>
+	<string>12E</string>
+	<key>QSActions</key>
+	<dict>
+		<key>QSSafariAddToReadingListAction</key>
+		<dict>
+			<key>actionClass</key>
+			<string>QSSafariActionProvider</string>
+			<key>actionSelector</key>
+			<string>addToReadingList:</string>
+			<key>directTypes</key>
+			<array>
+				<string>Apple URL pasteboard type</string>
+			</array>
+			<key>icon</key>
+			<string>com.apple.Safari</string>
+			<key>name</key>
+			<string>Add to Reading List</string>
+		</dict>
+	</dict>
 	<key>QSPlugIn</key>
 	<dict>
 		<key>author</key>
@@ -106,6 +122,11 @@
 	</array>
 	<key>QSRegistration</key>
 	<dict>
+		<key>QSActionProviders</key>
+		<dict>
+			<key>QSSafariActionProvider</key>
+			<string>QSSafariActionProvider</string>
+		</dict>
 		<key>QSBundleChildHandlers</key>
 		<dict>
 			<key>com.apple.Safari</key>
