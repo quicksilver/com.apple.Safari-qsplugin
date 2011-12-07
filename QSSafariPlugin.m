@@ -1,8 +1,5 @@
 #import "QSSafariPlugin.h"
 
-// TODO better handling for Reading List in the catalog
-// TODO provide a way to view all open pages
-
 @implementation QSSafariObjectHandler
 
 - (void)performJavaScript:(NSString *)jScript
