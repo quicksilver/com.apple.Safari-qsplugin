@@ -235,8 +235,15 @@
 	NSString *title = [dict objectForKey:@"Title"];
 	NSString *identifier = [dict objectForKey:@"WebBookmarkUUID"];
 	
-	if ([identifier isEqualToString:@"Bookmarks Bar ID"])  title = [self safariLocalizedString:@"Bookmarks Bar"];
-	if ([identifier isEqualToString:@"Bookmarks Menu ID"]) title = [self safariLocalizedString:@"Bookmarks Menu"];
+	if ([title isEqualToString:@"BookmarksBar"]) {
+		title = [self safariLocalizedString:@"Bookmarks Bar"];
+	}
+	if ([title isEqualToString:@"BookmarksMenu"]) {
+		title = [self safariLocalizedString:@"Bookmarks Menu"];
+	}
+	if ([title isEqualToString:@"com.apple.ReadingList"]) {
+		title = @"Reading List";
+	}
 	QSObject *group = [QSObject objectWithName:title];
 	//NSLog(@"title %@", title);
 	[group setIdentifier:identifier];
