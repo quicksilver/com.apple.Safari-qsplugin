@@ -15,7 +15,14 @@
 	if ([Safari isRunning]) {
 		NSString *url = [[[[Safari windows] objectAtIndex:0] currentTab] URL];
 		if (url) {
-			return [QSObject URLObjectWithURL:url title:nil];
+			if ([[proxy identifier] isEqualToString:@"QSSafariFrontPageProxy"]) {
+				return [QSObject URLObjectWithURL:url title:nil];
+			}
+			if ([[proxy identifier] isEqualToString:@"QSSafariSearchCurrentSite"]) {
+				NSURL *currentURL = [NSURL URLWithString:url];
+				NSString *searchShortcut = [NSString stringWithFormat:@"http://www.google.com/search?q=*** site:%@", [currentURL host]];
+				return [QSObject URLObjectWithURL:searchShortcut title:nil];
+			}
 		}
 	}
 	return nil;
