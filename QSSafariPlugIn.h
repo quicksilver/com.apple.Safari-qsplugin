@@ -2,6 +2,9 @@
 #import "Safari.h"
 
 @interface QSSafariObjectHandler : NSObject
+{
+	SafariApplication *Safari;
+}
 - (NSArray *)safariChildren;
 - (SafariApplication *)getSafari;
 @end

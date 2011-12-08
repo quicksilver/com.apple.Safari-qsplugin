@@ -2,16 +2,27 @@
 
 @implementation QSSafariObjectHandler
 
+- (id)init {
+    self = [super init];
+    if (self) {
+        Safari = [[SBApplication applicationWithBundleIdentifier:@"com.apple.Safari"] retain];
+    }
+    return self;
+}
+
+- (void)dealloc {
+    [Safari release];
+    [super dealloc];
+}
+
 - (void)performJavaScript:(NSString *)jScript
 {
-	SafariApplication *Safari = [self getSafari];
 	SafariTab *frontTab = [[[Safari windows] objectAtIndex:0] currentTab];
 	[Safari doJavaScript:jScript in:frontTab];
 }
 
 - (id)resolveProxyObject:(id)proxy
 {
-	SafariApplication *Safari = [self getSafari];
 	if ([Safari isRunning]) {
 		NSString *url = [[[[Safari windows] objectAtIndex:0] currentTab] URL];
 		if (url) {
@@ -26,11 +37,6 @@
 		}
 	}
 	return nil;
-}
-
-- (SafariApplication *)getSafari
-{
-	return [SBApplication applicationWithBundleIdentifier:@"com.apple.Safari"];
 }
 
 - (BOOL)indexIsValidFromDate:(NSDate *)indexDate forEntry:(NSDictionary *)theEntry
@@ -60,7 +66,6 @@
         return YES;
     }
 	if ([[object primaryType] isEqualToString:@"qs.safari.openPages"]) {
-		SafariApplication *Safari = [self getSafari];
 		if ([Safari isRunning]) {
 			NSMutableArray *openPages = [NSMutableArray arrayWithCapacity:1];
 			NSString *url;
