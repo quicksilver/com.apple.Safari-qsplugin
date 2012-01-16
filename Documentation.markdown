@@ -6,11 +6,11 @@ It also provides access to all currently open pages. Select "Open Web Pages" in 
 
 ### Proxy Objects ###
 
-There are two proxy objects: Current Web Page and Search Current Website
+There are two proxy objects: Current Web Page and Current Website
 
 Current Web Page gives you quick access to the URL of the active window/tab in Safari.
 
-Search Current Site adds a new Web Search to your catalog that allows you to search (using Google) the entire site currently active in Safari.
+Current Website adds a new Web Search to your catalog that allows you to search (using Google) the entire site currently active in Safari.
 
 ## Actions ##
 

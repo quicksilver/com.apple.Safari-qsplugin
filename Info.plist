@@ -17,7 +17,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>2.1.0</string>
 	<key>CFBundleVersion</key>
-	<string>131</string>
+	<string>132</string>
 	<key>QSActions</key>
 	<dict>
 		<key>QSSafariAddToReadingListAction</key>
@@ -56,11 +56,11 @@
 
 &lt;h3 id=&quot;proxy_objects&quot;&gt;Proxy Objects&lt;/h3&gt;
 
-&lt;p&gt;There are two proxy objects: Current Web Page and Search Current Website&lt;/p&gt;
+&lt;p&gt;There are two proxy objects: Current Web Page and Current Website&lt;/p&gt;
 
 &lt;p&gt;Current Web Page gives you quick access to the URL of the active window/tab in Safari.&lt;/p&gt;
 
-&lt;p&gt;Search Current Site adds a new Web Search to your catalog that allows you to search (using Google) the entire site currently active in Safari.&lt;/p&gt;
+&lt;p&gt;Current Website adds a new Web Search to your catalog that allows you to search (using Google) the entire site currently active in Safari.&lt;/p&gt;
 
 &lt;h2 id=&quot;actions&quot;&gt;Actions&lt;/h2&gt;
 
