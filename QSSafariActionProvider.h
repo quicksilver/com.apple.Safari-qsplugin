@@ -9,8 +9,10 @@
 #import "Safari.h"
 
 @interface QSSafariActionProvider : QSActionProvider
+{
+	SafariApplication *Safari;
+}
 
 - (QSObject *)addToReadingList:(QSObject *)dObject;
-- (SafariApplication *)getSafari;
 
 @end

@@ -9,9 +9,21 @@
 
 @implementation QSSafariActionProvider
 
+- (id)init {
+    self = [super init];
+    if (self) {
+        Safari = [[SBApplication applicationWithBundleIdentifier:@"com.apple.Safari"] retain];
+    }
+    return self;
+}
+
+- (void)dealloc {
+    [Safari release];
+    [super dealloc];
+}
+
 - (QSObject *)addToReadingList:(QSObject *)dObject
 {
-	SafariApplication *Safari = [self getSafari];
 	NSString *url;
 //	NSString *preview;
 	NSString *title;
@@ -21,11 +33,6 @@
 		[Safari addReadingListItem:url andPreviewText:nil withTitle:title];
 	}
 	return nil;
-}
-
-- (SafariApplication *)getSafari
-{
-	return [SBApplication applicationWithBundleIdentifier:@"com.apple.Safari"];
 }
 
 @end
