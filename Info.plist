@@ -202,7 +202,7 @@
 				<key>icon</key>
 				<string>com.apple.safari</string>
 				<key>name</key>
-				<string>Search Current Website (Safari)</string>
+				<string>Current Website (Safari)</string>
 				<key>providerClass</key>
 				<string>QSSafariObjectHandler</string>
 				<key>types</key>
