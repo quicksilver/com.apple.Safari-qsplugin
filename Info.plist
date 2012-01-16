@@ -169,11 +169,6 @@
 			<key>QSSafariHistoryParser</key>
 			<string>QSSafariHistoryParser</string>
 		</dict>
-		<key>QSFaviconSources</key>
-		<dict>
-			<key>QSSafariFaviconSource</key>
-			<string>QSSafariFaviconSource</string>
-		</dict>
 		<key>QSObjectHandlers</key>
 		<dict>
 			<key>qs.safari.bookmarkGroup</key>
