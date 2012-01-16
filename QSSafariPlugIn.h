@@ -4,9 +4,10 @@
 @interface QSSafariObjectHandler : NSObject
 {
 	SafariApplication *Safari;
+	NSDictionary *iconMap;
 }
+
 - (NSArray *)safariChildren;
-- (SafariApplication *)getSafari;
 @end
 
 @interface QSSafariBookmarksParser : QSParser

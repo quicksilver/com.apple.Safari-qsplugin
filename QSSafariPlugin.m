@@ -6,12 +6,22 @@
     self = [super init];
     if (self) {
         Safari = [[SBApplication applicationWithBundleIdentifier:@"com.apple.Safari"] retain];
+		iconMap = [[NSDictionary alloc] initWithObjectsAndKeys:
+					@"SafariBookmarkMenuIcon", @"BookmarksMenu",
+					@"SafariBookmarkBarIcon", @"BookmarksBar",
+					@"Recent", @"History",
+					@"Bonjour", @"Bonjour",
+					@"com.apple.AddressBook", @"Address Book",
+					@"SafariBookmarkRSSIcon", @"All RSS Feeds",
+					@"SafariBookmarkReadingListIcon", @"com.apple.ReadingList",
+				   nil];
     }
     return self;
 }
 
 - (void)dealloc {
     [Safari release];
+	[iconMap release];
     [super dealloc];
 }
 
@@ -152,17 +162,7 @@
 - (BOOL)loadIconForObject:(QSObject *)object {
 	NSDictionary *dict = [object objectForType:@"qs.safari.bookmarkGroup"];
 	NSString *title = [dict objectForKey:@"Title"];
-	
-	NSDictionary *iconMap = [NSDictionary dictionaryWithObjectsAndKeys:
-							 @"SafariBookmarkMenuIcon", @"BookmarksMenu",
-							 @"SafariBookmarkBarIcon", @"BookmarksBar",
-							 @"Recent", @"History",
-							 @"Bonjour", @"Bonjour",
-							 @"com.apple.AddressBook", @"Address Book",
-							 @"SafariBookmarkRSSIcon", @"All RSS Feeds",
-							 @"SafariBookmarkReadingListIcon", @"com.apple.ReadingList",
-							 nil];
-	
+		
 	NSString *icon = [iconMap objectForKey:title];
 	if (icon) {
 		[object setIcon:[QSResourceManager imageNamed:icon]];
