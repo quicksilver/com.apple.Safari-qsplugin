@@ -248,6 +248,7 @@
 			baseConfigurationReference = 14DE93C610D0D9BD00851A6F /* QSPlugIn_Debug.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_LDFLAGS = "-bundle";
 				PRODUCT_NAME = "Safari Module";
 				SDKROOT = macosx;
@@ -260,6 +261,7 @@
 			baseConfigurationReference = 14DE93C810D0D9BD00851A6F /* QSPlugIn_Release.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_LDFLAGS = "-bundle";
 				PRODUCT_NAME = "Safari Module";
 				SDKROOT = macosx;
@@ -272,6 +274,8 @@
 			baseConfigurationReference = 14DE93C410D0D9BD00851A6F /* Debug.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
@@ -280,6 +284,8 @@
 			baseConfigurationReference = 14DE93CA10D0D9BD00851A6F /* Release.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};
