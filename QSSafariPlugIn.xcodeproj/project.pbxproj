@@ -15,6 +15,7 @@
 		D4303609148F21180054577A /* Safari.app in Resources */ = {isa = PBXBuildFile; fileRef = D4303608148F21180054577A /* Safari.app */; };
 		D430360B148F21640054577A /* ScriptingBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D430360A148F21640054577A /* ScriptingBridge.framework */; };
 		D4303618148FCC840054577A /* QSSafariActionProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = D4303617148FCC840054577A /* QSSafariActionProvider.m */; };
+		D4E7FFEA14C8B3E900D2A4DA /* Safari.app in Sources */ = {isa = PBXBuildFile; fileRef = D4303608148F21180054577A /* Safari.app */; };
 		E1EAB046068128A200774DFF /* QSSafariPlugIn.m in Sources */ = {isa = PBXBuildFile; fileRef = E1EAB045068128A200774DFF /* QSSafariPlugIn.m */; };
 /* End PBXBuildFile section */
 
@@ -233,6 +234,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4E7FFEA14C8B3E900D2A4DA /* Safari.app in Sources */,
 				E1EAB046068128A200774DFF /* QSSafariPlugIn.m in Sources */,
 				D4303618148FCC840054577A /* QSSafariActionProvider.m in Sources */,
 			);
