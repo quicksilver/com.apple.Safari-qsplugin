@@ -112,7 +112,7 @@
 					<key>icon</key>
 					<string>SafariHistoryIcon</string>
 					<key>name</key>
-					<string>Pages Open in Safari</string>
+					<string>Open Web Pages</string>
 					<key>source</key>
 					<string>QSSafariObjectHandler</string>
 				</dict>
