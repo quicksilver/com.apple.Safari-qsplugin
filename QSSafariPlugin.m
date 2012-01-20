@@ -102,10 +102,9 @@
 	if (![type isEqualToString:@"WebBookmarkTypeProxy"]) {
 		id parser = [[[QSSafariBookmarksParser alloc] init] autorelease];
 		children = [parser safariBookmarksForDict:dict deep:NO includeProxies:YES];
-		
 	} else if ([ident isEqualToString:@"History"]) {
 		QSCatalogEntry *theEntry = [QSLib entryForID:@"QSPresetSafariHistory"];
-		children = [theEntry contentsScanIfNeeded:YES];
+		children = [theEntry scanAndCache];
 	} else if ([ident isEqualToString:@"Bonjour"]) {
 		return NO;
 	} else if ([ident isEqualToString:@"Address Book"]) {
