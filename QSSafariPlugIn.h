@@ -8,6 +8,7 @@
 }
 
 - (NSArray *)safariChildren;
+- (QSObject *)currentPagesParent;
 @end
 
 @interface QSSafariBookmarksParser : QSParser

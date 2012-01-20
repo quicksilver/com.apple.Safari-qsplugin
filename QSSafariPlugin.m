@@ -57,10 +57,7 @@
 - (NSArray *)objectsForEntry:(NSDictionary *)theEntry
 {
 	if ([[theEntry objectForKey:@"ID"] isEqualToString:@"QSPresetSafariOpenPages"]) {
-		QSObject *currentPages = [QSObject makeObjectWithIdentifier:@"QSSafariOpenPages"];
-		[currentPages setName:@"Open Web Pages (Safari)"];
-		[currentPages setPrimaryType:@"qs.safari.openPages"];
-		return [NSArray arrayWithObject:currentPages];
+		return [NSArray arrayWithObject:[self currentPagesParent]];
 	}
 	return nil;
 }
@@ -146,8 +143,18 @@
 	
 	NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile: [@"~/Library/Safari/Bookmarks.plist" stringByStandardizingPath]];
 	
-	NSArray *children = [parser safariBookmarksForDict:dict deep:NO includeProxies:YES];
+	NSMutableArray *children = [parser safariBookmarksForDict:dict deep:NO includeProxies:YES];
+	[children addObject:[self currentPagesParent]];
 	return children;
+}
+
+- (QSObject *)currentPagesParent
+{
+	QSObject *currentPages = [QSObject makeObjectWithIdentifier:@"QSSafariOpenPages"];
+	[currentPages setName:@"Open Web Pages (Safari)"];
+	[currentPages setDetails:@"URLs from all open windows and tabs"];
+	[currentPages setPrimaryType:@"qs.safari.openPages"];
+	return currentPages;
 }
 
 // Object Handler Methods
