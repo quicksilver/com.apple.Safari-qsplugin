@@ -15,22 +15,58 @@
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.0.1</string>
+	<string>2.1.0</string>
 	<key>CFBundleVersion</key>
-	<string>12C</string>
-	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2004, Blacktree, Inc.</string>
+	<string>132</string>
+	<key>QSActions</key>
+	<dict>
+		<key>QSSafariAddToReadingListAction</key>
+		<dict>
+			<key>actionClass</key>
+			<string>QSSafariActionProvider</string>
+			<key>actionSelector</key>
+			<string>addToReadingList:</string>
+			<key>directTypes</key>
+			<array>
+				<string>Apple URL pasteboard type</string>
+			</array>
+			<key>icon</key>
+			<string>SafariBookmarkReadingListIcon</string>
+			<key>name</key>
+			<string>Add to Reading List</string>
+		</dict>
+	</dict>
 	<key>QSPlugIn</key>
 	<dict>
 		<key>author</key>
-		<string>Blacktree, Inc.</string>
+		<string>Alcor, Rob McBroom</string>
 		<key>categories</key>
 		<array>
 			<string>Web</string>
 			<string>Applications</string>
 		</array>
 		<key>description</key>
-		<string>Bookmarks and History</string>
+		<string>Access to information from the Safari browser</string>
+		<key>extendedDescription</key>
+		<string>&lt;h2 id=&quot;catalog&quot;&gt;Catalog&lt;/h2&gt;
+
+&lt;p&gt;The Safari plug-in allows you to index your Safari bookmarks and history. You can locate these items by searching in Quicksilver, or by selecting Safari and hitting → or /.&lt;/p&gt;
+
+&lt;p&gt;It also provides access to all currently open pages. Select &amp;#8220;Open Web Pages&amp;#8221; in the first pane and hit → or /.&lt;/p&gt;
+
+&lt;h3 id=&quot;proxy_objects&quot;&gt;Proxy Objects&lt;/h3&gt;
+
+&lt;p&gt;There are two proxy objects: Current Web Page and Current Website&lt;/p&gt;
+
+&lt;p&gt;Current Web Page gives you quick access to the URL of the active window/tab in Safari.&lt;/p&gt;
+
+&lt;p&gt;Current Website adds a new Web Search to your catalog that allows you to search (using Google) the entire site currently active in Safari.&lt;/p&gt;
+
+&lt;h2 id=&quot;actions&quot;&gt;Actions&lt;/h2&gt;
+
+&lt;h4 id=&quot;add_to_reading_list&quot;&gt;Add to Reading List&lt;/h4&gt;
+
+&lt;p&gt;With a URL selected in Quicksilver&amp;#8217;s first pane, you can quickly add it to Safari&amp;#8217;s Reading List.&lt;/p&gt;</string>
 		<key>icon</key>
 		<string>com.apple.Safari</string>
 		<key>relatedBundles</key>
@@ -72,6 +108,16 @@
 				</dict>
 				<dict>
 					<key>ID</key>
+					<string>QSPresetSafariOpenPages</string>
+					<key>icon</key>
+					<string>SafariHistoryIcon</string>
+					<key>name</key>
+					<string>Open Web Pages</string>
+					<key>source</key>
+					<string>QSSafariObjectHandler</string>
+				</dict>
+				<dict>
+					<key>ID</key>
 					<string>QSPresetSafariHistory</string>
 					<key>enabled</key>
 					<false/>
@@ -106,6 +152,11 @@
 	</array>
 	<key>QSRegistration</key>
 	<dict>
+		<key>QSActionProviders</key>
+		<dict>
+			<key>QSSafariActionProvider</key>
+			<string>QSSafariActionProvider</string>
+		</dict>
 		<key>QSBundleChildHandlers</key>
 		<dict>
 			<key>com.apple.Safari</key>
@@ -118,14 +169,16 @@
 			<key>QSSafariHistoryParser</key>
 			<string>QSSafariHistoryParser</string>
 		</dict>
-		<key>QSFaviconSources</key>
-		<dict>
-			<key>QSSafariFaviconSource</key>
-			<string>QSSafariFaviconSource</string>
-		</dict>
 		<key>QSObjectHandlers</key>
 		<dict>
 			<key>qs.safari.bookmarkGroup</key>
+			<string>QSSafariObjectHandler</string>
+			<key>qs.safari.openPages</key>
+			<string>QSSafariObjectHandler</string>
+		</dict>
+		<key>QSObjectSources</key>
+		<dict>
+			<key>QSSafariObjectHandler</key>
 			<string>QSSafariObjectHandler</string>
 		</dict>
 		<key>QSProxies</key>
@@ -143,6 +196,30 @@
 					<string>Apple URL pasteboard type</string>
 					<string>NSStringPboardType</string>
 				</array>
+			</dict>
+			<key>QSSafariSearchCurrentSite</key>
+			<dict>
+				<key>icon</key>
+				<string>com.apple.safari</string>
+				<key>name</key>
+				<string>Current Website (Safari)</string>
+				<key>providerClass</key>
+				<string>QSSafariObjectHandler</string>
+				<key>types</key>
+				<array>
+					<string>Apple URL pasteboard type</string>
+					<string>NSStringPboardType</string>
+				</array>
+			</dict>
+		</dict>
+		<key>QSTypeDefinitions</key>
+		<dict>
+			<key>qs.safari.openPages</key>
+			<dict>
+				<key>icon</key>
+				<string>com.apple.Safari</string>
+				<key>name</key>
+				<string>Open Web Pages Container</string>
 			</dict>
 		</dict>
 		<key>QSWebBrowserMediators</key>
@@ -166,6 +243,20 @@
 			<string>com.apple.Safari</string>
 			<key>resource</key>
 			<string>tiny_menu.tiff</string>
+		</dict>
+		<key>SafariBookmarkRSSIcon</key>
+		<dict>
+			<key>bundle</key>
+			<string>com.apple.Safari</string>
+			<key>resource</key>
+			<string>ShowRSSButton@2x.png</string>
+		</dict>
+		<key>SafariBookmarkReadingListIcon</key>
+		<dict>
+			<key>bundle</key>
+			<string>com.apple.Safari</string>
+			<key>resource</key>
+			<string>ReadingList-GlassesSmall.pdf</string>
 		</dict>
 	</dict>
 </dict>

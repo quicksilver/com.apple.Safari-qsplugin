@@ -1,10 +1,14 @@
-
-
 #import <Foundation/Foundation.h>
-
+#import "Safari.h"
 
 @interface QSSafariObjectHandler : NSObject
+{
+	SafariApplication *Safari;
+	NSDictionary *iconMap;
+}
+
 - (NSArray *)safariChildren;
+- (QSObject *)currentPagesParent;
 @end
 
 @interface QSSafariBookmarksParser : QSParser
