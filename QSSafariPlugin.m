@@ -5,7 +5,8 @@
 - (id)init {
     self = [super init];
     if (self) {
-        Safari = [[SBApplication applicationWithBundleIdentifier:@"com.apple.Safari"] retain];
+		Safari = nil;
+		[self createSafariAndLaunch:NO];
 		iconMap = [[NSDictionary alloc] initWithObjectsAndKeys:
 					@"SafariBookmarkMenuIcon", @"BookmarksMenu",
 					@"SafariBookmarkBarIcon", @"BookmarksBar",
@@ -25,14 +26,25 @@
     [super dealloc];
 }
 
+- (void)createSafariAndLaunch:(BOOL)okToLaunch
+{
+	if (okToLaunch || QSAppIsRunning(@"com.apple.Safari")) {
+		if (!Safari) {
+			Safari = [[SBApplication applicationWithBundleIdentifier:@"com.apple.Safari"] retain];
+		}
+	}
+}
+
 - (void)performJavaScript:(NSString *)jScript
 {
+	[self createSafariAndLaunch:YES];
 	SafariTab *frontTab = [[[Safari windows] objectAtIndex:0] currentTab];
 	[Safari doJavaScript:jScript in:frontTab];
 }
 
 - (QSObject *)addToReadingList:(QSObject *)dObject
 {
+	[self createSafariAndLaunch:YES];
 	NSString *url;
 	//	NSString *preview;
 	NSString *title;
@@ -46,6 +58,7 @@
 
 - (id)resolveProxyObject:(id)proxy
 {
+	[self createSafariAndLaunch:NO];
 	if ([Safari isRunning]) {
 		SafariTab *currentTab = [[[Safari windows] objectAtIndex:0] currentTab];
 		NSString *url = [currentTab URL];
@@ -88,6 +101,7 @@
         return YES;
     }
 	if ([[object primaryType] isEqualToString:@"qs.safari.openPages"]) {
+		[self createSafariAndLaunch:NO];
 		if ([Safari isRunning]) {
 			NSMutableArray *openPages = [NSMutableArray arrayWithCapacity:1];
 			NSString *url;
