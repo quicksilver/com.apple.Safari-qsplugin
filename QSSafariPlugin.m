@@ -152,7 +152,12 @@
 }
 
 - (NSString *)detailsOfObject:(QSObject *)object {
-	
+	if ([[object identifier] isEqualToString:@"QSSafariFrontPageProxy"]) {
+		return @"The URL of the page open in Safari";
+	}
+	if ([[object identifier] isEqualToString:@"QSSafariSearchCurrentSite"]) {
+		return @"Search the site open in Safari";
+	}
 	NSDictionary *dict = [object objectForType:@"qs.safari.bookmarkGroup"];
 	
 	NSString *type = [dict objectForKey:@"WebBookmarkType"];
