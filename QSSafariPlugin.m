@@ -47,10 +47,12 @@
 - (id)resolveProxyObject:(id)proxy
 {
 	if ([Safari isRunning]) {
-		NSString *url = [[[[Safari windows] objectAtIndex:0] currentTab] URL];
+		SafariTab *currentTab = [[[Safari windows] objectAtIndex:0] currentTab];
+		NSString *url = [currentTab URL];
+		NSString *title = [currentTab name];
 		if (url) {
 			if ([[proxy identifier] isEqualToString:@"QSSafariFrontPageProxy"]) {
-				return [QSObject URLObjectWithURL:url title:nil];
+				return [QSObject URLObjectWithURL:url title:title];
 			}
 			if ([[proxy identifier] isEqualToString:@"QSSafariSearchCurrentSite"]) {
 				NSURL *currentURL = [NSURL URLWithString:url];
