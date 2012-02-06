@@ -23,7 +23,7 @@
 		<key>QSSafariAddToReadingListAction</key>
 		<dict>
 			<key>actionClass</key>
-			<string>QSSafariActionProvider</string>
+			<string>QSSafariObjectHandler</string>
 			<key>actionSelector</key>
 			<string>addToReadingList:</string>
 			<key>directTypes</key>

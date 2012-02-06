@@ -9,6 +9,7 @@
 
 - (NSArray *)safariChildren;
 - (QSObject *)currentPagesParent;
+- (QSObject *)addToReadingList:(QSObject *)dObject;
 @end
 
 @interface QSSafariBookmarksParser : QSParser
