@@ -36,13 +36,10 @@
 	NSString *url;
 	//	NSString *preview;
 	NSString *title;
-	Safari = [self getSafari:YES];
-	if (Safari) {
-		for (QSObject *bookmark in [dObject splitObjects]) {
-			url = [bookmark objectForType:QSURLType];
-			title = [bookmark displayName];
-			[Safari addReadingListItem:url andPreviewText:nil withTitle:title];
-		}
+	for (QSObject *bookmark in [dObject splitObjects]) {
+		url = [bookmark objectForType:QSURLType];
+		title = [bookmark displayName];
+		[Safari addReadingListItem:url andPreviewText:nil withTitle:title];
 	}
 	return nil;
 }
