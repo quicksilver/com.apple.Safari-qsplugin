@@ -258,7 +258,7 @@
 		title = [self safariLocalizedString:@"Bookmarks Menu"];
 	}
 	if ([title isEqualToString:@"com.apple.ReadingList"]) {
-		title = @"Reading List";
+		title = [self safariLocalizedString:@"Reading List"];
 	}
 	QSObject *group = [QSObject objectWithName:title];
 	//NSLog(@"title %@", title);
