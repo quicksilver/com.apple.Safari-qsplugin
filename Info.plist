@@ -15,15 +15,15 @@
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.1.0</string>
+	<string>2.1.1</string>
 	<key>CFBundleVersion</key>
-	<string>132</string>
+	<string>133</string>
 	<key>QSActions</key>
 	<dict>
 		<key>QSSafariAddToReadingListAction</key>
 		<dict>
 			<key>actionClass</key>
-			<string>QSSafariActionProvider</string>
+			<string>QSSafariObjectHandler</string>
 			<key>actionSelector</key>
 			<string>addToReadingList:</string>
 			<key>directTypes</key>
