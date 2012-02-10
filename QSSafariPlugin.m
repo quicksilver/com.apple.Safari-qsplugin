@@ -5,7 +5,8 @@
 - (id)init {
     self = [super init];
     if (self) {
-        Safari = [[SBApplication applicationWithBundleIdentifier:@"com.apple.Safari"] retain];
+		Safari = nil;
+		[self createSafariAndLaunch:NO];
 		iconMap = [[NSDictionary alloc] initWithObjectsAndKeys:
 					@"SafariBookmarkMenuIcon", @"BookmarksMenu",
 					@"SafariBookmarkBarIcon", @"BookmarksBar",
@@ -25,19 +26,46 @@
     [super dealloc];
 }
 
+- (void)createSafariAndLaunch:(BOOL)okToLaunch
+{
+	if (okToLaunch || QSAppIsRunning(@"com.apple.Safari")) {
+		if (!Safari) {
+			Safari = [[SBApplication applicationWithBundleIdentifier:@"com.apple.Safari"] retain];
+		}
+	}
+}
+
 - (void)performJavaScript:(NSString *)jScript
 {
+	[self createSafariAndLaunch:YES];
 	SafariTab *frontTab = [[[Safari windows] objectAtIndex:0] currentTab];
 	[Safari doJavaScript:jScript in:frontTab];
 }
 
+- (QSObject *)addToReadingList:(QSObject *)dObject
+{
+	[self createSafariAndLaunch:YES];
+	NSString *url;
+	//	NSString *preview;
+	NSString *title;
+	for (QSObject *bookmark in [dObject splitObjects]) {
+		url = [bookmark objectForType:QSURLType];
+		title = [bookmark displayName];
+		[Safari addReadingListItem:url andPreviewText:nil withTitle:title];
+	}
+	return nil;
+}
+
 - (id)resolveProxyObject:(id)proxy
 {
+	[self createSafariAndLaunch:NO];
 	if ([Safari isRunning]) {
-		NSString *url = [[[[Safari windows] objectAtIndex:0] currentTab] URL];
+		SafariTab *currentTab = [[[Safari windows] objectAtIndex:0] currentTab];
+		NSString *url = [currentTab URL];
+		NSString *title = [currentTab name];
 		if (url) {
 			if ([[proxy identifier] isEqualToString:@"QSSafariFrontPageProxy"]) {
-				return [QSObject URLObjectWithURL:url title:nil];
+				return [QSObject URLObjectWithURL:url title:title];
 			}
 			if ([[proxy identifier] isEqualToString:@"QSSafariSearchCurrentSite"]) {
 				NSURL *currentURL = [NSURL URLWithString:url];
@@ -73,6 +101,7 @@
         return YES;
     }
 	if ([[object primaryType] isEqualToString:@"qs.safari.openPages"]) {
+		[self createSafariAndLaunch:NO];
 		if ([Safari isRunning]) {
 			NSMutableArray *openPages = [NSMutableArray arrayWithCapacity:1];
 			NSString *url;
@@ -123,7 +152,12 @@
 }
 
 - (NSString *)detailsOfObject:(QSObject *)object {
-	
+	if ([[object identifier] isEqualToString:@"QSSafariFrontPageProxy"]) {
+		return @"The URL of the page open in Safari";
+	}
+	if ([[object identifier] isEqualToString:@"QSSafariSearchCurrentSite"]) {
+		return @"Search the site open in Safari";
+	}
 	NSDictionary *dict = [object objectForType:@"qs.safari.bookmarkGroup"];
 	
 	NSString *type = [dict objectForKey:@"WebBookmarkType"];
@@ -243,7 +277,7 @@
 		title = [self safariLocalizedString:@"Bookmarks Menu"];
 	}
 	if ([title isEqualToString:@"com.apple.ReadingList"]) {
-		title = @"Reading List";
+		title = [self safariLocalizedString:@"Reading List"];
 	}
 	QSObject *group = [QSObject objectWithName:title];
 	//NSLog(@"title %@", title);
