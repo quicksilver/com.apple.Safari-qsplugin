@@ -187,6 +187,7 @@
 	[currentPages setName:@"Open Web Pages (Safari)"];
 	[currentPages setDetails:@"URLs from all open windows and tabs"];
 	[currentPages setPrimaryType:@"qs.safari.openPages"];
+	[currentPages setIcon:[QSResourceManager imageNamed:@"com.apple.Safari"]];
 	return currentPages;
 }
 
