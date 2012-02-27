@@ -1,7 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "Safari.h"
 
-@interface QSSafariObjectHandler : NSObject
+@interface QSSafariObjectHandler : QSObjectSource
 {
 	SafariApplication *Safari;
 	NSDictionary *iconMap;
