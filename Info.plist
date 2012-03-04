@@ -15,9 +15,9 @@
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.1.1</string>
+	<string>2.1.2</string>
 	<key>CFBundleVersion</key>
-	<string>133</string>
+	<string>134</string>
 	<key>QSActions</key>
 	<dict>
 		<key>QSSafariAddToReadingListAction</key>
@@ -210,16 +210,6 @@
 					<string>Apple URL pasteboard type</string>
 					<string>NSStringPboardType</string>
 				</array>
-			</dict>
-		</dict>
-		<key>QSTypeDefinitions</key>
-		<dict>
-			<key>qs.safari.openPages</key>
-			<dict>
-				<key>icon</key>
-				<string>com.apple.Safari</string>
-				<key>name</key>
-				<string>Open Web Pages Container</string>
 			</dict>
 		</dict>
 		<key>QSWebBrowserMediators</key>
