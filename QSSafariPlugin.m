@@ -165,7 +165,7 @@
 	
 	if (![type isEqualToString:@"WebBookmarkTypeProxy"]) {
 		
-		int count = [[dict objectForKey:@"Children"] count];
+		NSUInteger count = [(NSArray *)[dict objectForKey:@"Children"] count];
 		return [NSString stringWithFormat:@"%d item%@", count, ESS(count)];
 	}
 	return nil;
@@ -176,7 +176,7 @@
 	
 	NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile: [@"~/Library/Safari/Bookmarks.plist" stringByStandardizingPath]];
 	
-	NSMutableArray *children = [parser safariBookmarksForDict:dict deep:NO includeProxies:YES];
+	NSMutableArray *children = [[parser safariBookmarksForDict:dict deep:NO includeProxies:YES] mutableCopy];
 	[children addObject:[self currentPagesParent]];
 	return children;
 }
