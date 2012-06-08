@@ -176,7 +176,7 @@
 	
 	NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile: [@"~/Library/Safari/Bookmarks.plist" stringByStandardizingPath]];
 	
-	NSMutableArray *children = [[parser safariBookmarksForDict:dict deep:NO includeProxies:YES] mutableCopy];
+	NSMutableArray *children = [[[parser safariBookmarksForDict:dict deep:NO includeProxies:YES] mutableCopy] autorelease];
 	[children addObject:[self currentPagesParent]];
 	return children;
 }
