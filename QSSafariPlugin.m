@@ -165,7 +165,7 @@
 	
 	if (![type isEqualToString:@"WebBookmarkTypeProxy"]) {
 		
-		int count = [[dict objectForKey:@"Children"] count];
+		NSUInteger count = [(NSArray *)[dict objectForKey:@"Children"] count];
 		return [NSString stringWithFormat:@"%d item%@", count, ESS(count)];
 	}
 	return nil;
@@ -176,7 +176,7 @@
 	
 	NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile: [@"~/Library/Safari/Bookmarks.plist" stringByStandardizingPath]];
 	
-	NSMutableArray *children = [parser safariBookmarksForDict:dict deep:NO includeProxies:YES];
+	NSMutableArray *children = [[[parser safariBookmarksForDict:dict deep:NO includeProxies:YES] mutableCopy] autorelease];
 	[children addObject:[self currentPagesParent]];
 	return children;
 }
@@ -230,10 +230,7 @@
 	NSString *title = [dict objectForKey:@"Title"];
 	if ([title isEqualToString:@"Archive"]) return nil; //***Skip Archive Folder
 	
-	
-	NSEnumerator *childEnum = [[dict objectForKey:@"Children"] objectEnumerator];
-	NSDictionary *child;
-	while (child = [childEnum nextObject]) {
+	for (NSDictionary *child in [dict objectForKey:@"Children"]) {
 		NSString *type = [child objectForKey:@"WebBookmarkType"];
 		QSObject *object = nil;
 		if ([type isEqualToString:@"WebBookmarkTypeLeaf"]) {
@@ -316,21 +313,15 @@
 
 - (NSArray *)objectsFromPath:(NSString *)path withSettings:(NSDictionary *)settings {
     NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile: [path stringByStandardizingPath]];
-    NSArray *history = [dict objectForKey:@"WebHistoryDates"];
-    
-    
     NSMutableArray *array = [NSMutableArray arrayWithCapacity:1];
     
-    NSEnumerator *childEnum = [history objectEnumerator];
-    NSDictionary *child;
-    while (child = [childEnum nextObject]) {
+    for (NSDictionary *child in [dict objectForKey:@"WebHistoryDates"]) {
         NSString *url = [child objectForKey:@""];
         NSString *title = [child objectForKey:@"title"];
         QSObject *object = [QSObject URLObjectWithURL:url title:title];
         if (object) [array addObject:object];
     }
     return  array;
-    
 }
 
 @end
