@@ -196,7 +196,7 @@
 	if ([[object primaryType] isEqualToString:@"qs.safari.openPages"]) {
 		[object setIcon:[QSResourceManager imageNamed:@"com.apple.Safari"]];
 	} else {
-		[object setIcon:[QSResourceManager imageNamed:@"GenericFolderIcon"]];
+		[object setIcon:[QSResourceManager imageNamed:@"SafariBookmarkFolderIcon"]];
 	}
 }
 

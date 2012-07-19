@@ -1,4 +1,3 @@
-#import <Foundation/Foundation.h>
 #import "Safari.h"
 
 @interface QSSafariObjectHandler : QSObjectSource

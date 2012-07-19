@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
+	<key>CFBundleDisplayName</key>
+	<string>Safari</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -11,13 +13,13 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>Safari Module</string>
+	<string>Safari Plugin</string>
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.1.3</string>
+	<string>2.1.4</string>
 	<key>CFBundleVersion</key>
-	<string>135</string>
+	<string>136</string>
 	<key>QSActions</key>
 	<dict>
 		<key>QSSafariAddToReadingListAction</key>
@@ -48,25 +50,16 @@
 		<key>description</key>
 		<string>Access to information from the Safari browser</string>
 		<key>extendedDescription</key>
-		<string>&lt;h2 id=&quot;catalog&quot;&gt;Catalog&lt;/h2&gt;
-
+		<string>&lt;h2&gt;Catalog&lt;/h2&gt;
 &lt;p&gt;The Safari plug-in allows you to index your Safari bookmarks and history. You can locate these items by searching in Quicksilver, or by selecting Safari and hitting → or /.&lt;/p&gt;
-
-&lt;p&gt;It also provides access to all currently open pages. Select &amp;#8220;Open Web Pages&amp;#8221; in the first pane and hit → or /.&lt;/p&gt;
-
-&lt;h3 id=&quot;proxy_objects&quot;&gt;Proxy Objects&lt;/h3&gt;
-
+&lt;p&gt;It also provides access to all currently open pages. Select "Open Web Pages" in the first pane and hit → or /.&lt;/p&gt;
+&lt;h3&gt;Proxy Objects&lt;/h3&gt;
 &lt;p&gt;There are two proxy objects: Current Web Page and Current Website&lt;/p&gt;
-
 &lt;p&gt;Current Web Page gives you quick access to the URL of the active window/tab in Safari.&lt;/p&gt;
-
 &lt;p&gt;Current Website adds a new Web Search to your catalog that allows you to search (using Google) the entire site currently active in Safari.&lt;/p&gt;
-
-&lt;h2 id=&quot;actions&quot;&gt;Actions&lt;/h2&gt;
-
-&lt;h4 id=&quot;add_to_reading_list&quot;&gt;Add to Reading List&lt;/h4&gt;
-
-&lt;p&gt;With a URL selected in Quicksilver&amp;#8217;s first pane, you can quickly add it to Safari&amp;#8217;s Reading List.&lt;/p&gt;</string>
+&lt;h2&gt;Actions&lt;/h2&gt;
+&lt;h4&gt;Add to Reading List&lt;/h4&gt;
+&lt;p&gt;With a URL selected in Quicksilver's first pane, you can quickly add it to Safari's Reading List.&lt;/p&gt;</string>
 		<key>icon</key>
 		<string>com.apple.Safari</string>
 		<key>relatedBundles</key>
@@ -226,6 +219,13 @@
 			<string>com.apple.Safari</string>
 			<key>resource</key>
 			<string>FavoritesBar.tif</string>
+		</dict>
+		<key>SafariBookmarkFolderIcon</key>
+		<dict>
+			<key>bundle</key>
+			<string>com.blacktree.Quicksilver.QSSafariPlugIn</string>
+			<key>resource</key>
+			<string>SafariBookmark.icns</string>
 		</dict>
 		<key>SafariBookmarkMenuIcon</key>
 		<dict>
