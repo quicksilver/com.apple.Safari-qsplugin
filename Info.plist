@@ -12,6 +12,8 @@
 	<string>6.0</string>
 	<key>CFBundleName</key>
 	<string>Safari Plugin</string>
+	<key>CFBundleDisplayName</key>
+	<string>Safari</string>
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleShortVersionString</key>
