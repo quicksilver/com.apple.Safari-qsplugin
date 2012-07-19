@@ -35,20 +35,17 @@
 		14DE93C310D0D9BD00851A6F /* Common.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Common.xcconfig; sourceTree = "<group>"; };
 		14DE93C410D0D9BD00851A6F /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		14DE93C510D0D9BD00851A6F /* Developer.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Developer.xcconfig; sourceTree = "<group>"; };
-		14DE93C610D0D9BD00851A6F /* QSPlugIn_Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = QSPlugIn_Debug.xcconfig; sourceTree = "<group>"; };
-		14DE93C710D0D9BD00851A6F /* QSPlugIn_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSPlugIn_Prefix.pch; sourceTree = "<group>"; };
-		14DE93C810D0D9BD00851A6F /* QSPlugIn_Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = QSPlugIn_Release.xcconfig; sourceTree = "<group>"; };
 		14DE93C910D0D9BD00851A6F /* QSPlugIn.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = QSPlugIn.xcconfig; sourceTree = "<group>"; };
 		14DE93CA10D0D9BD00851A6F /* Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
-		32DBCF980370C29C00C91783 /* QSSafariPlugIn_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSSafariPlugIn_Prefix.pch; sourceTree = "<group>"; };
 		7FDB78670AA8BBA900CCE360 /* QSCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QSCore.framework; path = "../../../../Users/paulkohut/Downloads/untitled folder/b54/blacktree-alchemy-read-only/Quicksilver/build/Debug/Quicksilver.app/Contents/Frameworks/QSCore.framework"; sourceTree = "<group>"; };
 		7FDB78680AA8BBA900CCE360 /* QSEffects.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QSEffects.framework; sourceTree = QSFrameworks; };
 		7FDB78690AA8BBA900CCE360 /* QSFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QSFoundation.framework; sourceTree = QSFrameworks; };
 		7FDB786A0AA8BBA900CCE360 /* QSInterface.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QSInterface.framework; sourceTree = QSFrameworks; };
 		8D1AC9730486D14A00FE50C9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		8D1AC9740486D14A00FE50C9 /* Safari Module.qsplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "Safari Module.qsplugin"; path = "Safari Module.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D1AC9740486D14A00FE50C9 /* Safari Plugin.qsplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Safari Plugin.qsplugin"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4303608148F21180054577A /* Safari.app */ = {isa = PBXFileReference; lastKnownFileType = wrapper.application; name = Safari.app; path = /Applications/Safari.app; sourceTree = "<absolute>"; };
 		D430360A148F21640054577A /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = /System/Library/Frameworks/ScriptingBridge.framework; sourceTree = "<absolute>"; };
+		D47F7AA615B88C260018750E /* Quicksilver.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Quicksilver.pch; sourceTree = "<group>"; };
 		DD92D38A0106425D02CA0E72 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		E1EAB045068128A200774DFF /* QSSafariPlugIn.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = QSSafariPlugIn.m; sourceTree = "<group>"; };
 		E1EAB047068128A800774DFF /* QSSafariPlugIn.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = QSSafariPlugIn.h; sourceTree = "<group>"; };
@@ -95,17 +92,16 @@
 		14DE93C010D0D9A600851A6F /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
+				D47F7AA615B88C260018750E /* Quicksilver.pch */,
 				14DE93C310D0D9BD00851A6F /* Common.xcconfig */,
 				14DE93C410D0D9BD00851A6F /* Debug.xcconfig */,
 				14DE93C510D0D9BD00851A6F /* Developer.xcconfig */,
-				14DE93C610D0D9BD00851A6F /* QSPlugIn_Debug.xcconfig */,
-				14DE93C710D0D9BD00851A6F /* QSPlugIn_Prefix.pch */,
-				14DE93C810D0D9BD00851A6F /* QSPlugIn_Release.xcconfig */,
 				14DE93C910D0D9BD00851A6F /* QSPlugIn.xcconfig */,
 				14DE93CA10D0D9BD00851A6F /* Release.xcconfig */,
 			);
-			path = Configuration;
-			sourceTree = QS_SOURCE_ROOT;
+			name = Configuration;
+			path = /private/tmp/QS/Configuration;
+			sourceTree = "<absolute>";
 		};
 		1ED78706FE9D4A0611CA0C5A /* Products */ = {
 			isa = PBXGroup;
@@ -114,7 +110,7 @@
 				7FDB78680AA8BBA900CCE360 /* QSEffects.framework */,
 				7FDB78690AA8BBA900CCE360 /* QSFoundation.framework */,
 				7FDB786A0AA8BBA900CCE360 /* QSInterface.framework */,
-				8D1AC9740486D14A00FE50C9 /* Safari Module.qsplugin */,
+				8D1AC9740486D14A00FE50C9 /* Safari Plugin.qsplugin */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -140,7 +136,6 @@
 		32DBCF9F0370C38200C91783 /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
-				32DBCF980370C29C00C91783 /* QSSafariPlugIn_Prefix.pch */,
 				D4303608148F21180054577A /* Safari.app */,
 			);
 			name = "Other Sources";
@@ -166,7 +161,7 @@
 			name = "Safari Plugin";
 			productInstallPath = "$(HOME)/Developer/Palettes";
 			productName = QSSafariPlugIn;
-			productReference = 8D1AC9740486D14A00FE50C9 /* Safari Module.qsplugin */;
+			productReference = 8D1AC9740486D14A00FE50C9 /* Safari Plugin.qsplugin */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -237,18 +232,16 @@
 /* Begin XCBuildConfiguration section */
 		7FFF24EA085E488600266176 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 14DE93C610D0D9BD00851A6F /* QSPlugIn_Debug.xcconfig */;
+			baseConfigurationReference = 14DE93C910D0D9BD00851A6F /* QSPlugIn.xcconfig */;
 			buildSettings = {
-				OTHER_LDFLAGS = "-bundle";
 				PRODUCT_NAME = "Safari Plugin";
 			};
 			name = Debug;
 		};
 		7FFF24EB085E488600266176 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 14DE93C810D0D9BD00851A6F /* QSPlugIn_Release.xcconfig */;
+			baseConfigurationReference = 14DE93C910D0D9BD00851A6F /* QSPlugIn.xcconfig */;
 			buildSettings = {
-				OTHER_LDFLAGS = "-bundle";
 				PRODUCT_NAME = "Safari Plugin";
 			};
 			name = Release;
