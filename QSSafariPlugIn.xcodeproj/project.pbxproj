@@ -46,7 +46,7 @@
 		7FDB78690AA8BBA900CCE360 /* QSFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QSFoundation.framework; sourceTree = QSFrameworks; };
 		7FDB786A0AA8BBA900CCE360 /* QSInterface.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QSInterface.framework; sourceTree = QSFrameworks; };
 		8D1AC9730486D14A00FE50C9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		8D1AC9740486D14A00FE50C9 /* Safari Module.qsplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Safari Module.qsplugin"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D1AC9740486D14A00FE50C9 /* Safari Module.qsplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "Safari Module.qsplugin"; path = "Safari Module.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4303608148F21180054577A /* Safari.app */ = {isa = PBXFileReference; lastKnownFileType = wrapper.application; name = Safari.app; path = /Applications/Safari.app; sourceTree = "<absolute>"; };
 		D430360A148F21640054577A /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = /System/Library/Frameworks/ScriptingBridge.framework; sourceTree = "<absolute>"; };
 		DD92D38A0106425D02CA0E72 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
@@ -149,9 +149,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8D1AC9600486D14A00FE50C9 /* Safari Module */ = {
+		8D1AC9600486D14A00FE50C9 /* Safari Plugin */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7FFF24E9085E488600266176 /* Build configuration list for PBXNativeTarget "Safari Module" */;
+			buildConfigurationList = 7FFF24E9085E488600266176 /* Build configuration list for PBXNativeTarget "Safari Plugin" */;
 			buildPhases = (
 				8D1AC9660486D14A00FE50C9 /* Resources */,
 				8D1AC96A0486D14A00FE50C9 /* Sources */,
@@ -163,7 +163,7 @@
 			);
 			dependencies = (
 			);
-			name = "Safari Module";
+			name = "Safari Plugin";
 			productInstallPath = "$(HOME)/Developer/Palettes";
 			productName = QSSafariPlugIn;
 			productReference = 8D1AC9740486D14A00FE50C9 /* Safari Module.qsplugin */;
@@ -191,7 +191,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8D1AC9600486D14A00FE50C9 /* Safari Module */,
+				8D1AC9600486D14A00FE50C9 /* Safari Plugin */,
 			);
 		};
 /* End PBXProject section */
@@ -240,8 +240,7 @@
 			baseConfigurationReference = 14DE93C610D0D9BD00851A6F /* QSPlugIn_Debug.xcconfig */;
 			buildSettings = {
 				OTHER_LDFLAGS = "-bundle";
-				PRODUCT_NAME = "Safari Module";
-				ZERO_LINK = YES;
+				PRODUCT_NAME = "Safari Plugin";
 			};
 			name = Debug;
 		};
@@ -250,8 +249,7 @@
 			baseConfigurationReference = 14DE93C810D0D9BD00851A6F /* QSPlugIn_Release.xcconfig */;
 			buildSettings = {
 				OTHER_LDFLAGS = "-bundle";
-				PRODUCT_NAME = "Safari Module";
-				ZERO_LINK = NO;
+				PRODUCT_NAME = "Safari Plugin";
 			};
 			name = Release;
 		};
@@ -272,7 +270,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7FFF24E9085E488600266176 /* Build configuration list for PBXNativeTarget "Safari Module" */ = {
+		7FFF24E9085E488600266176 /* Build configuration list for PBXNativeTarget "Safari Plugin" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7FFF24EA085E488600266176 /* Debug */,
