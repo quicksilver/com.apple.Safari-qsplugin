@@ -220,6 +220,13 @@
 			<key>resource</key>
 			<string>FavoritesBar.tif</string>
 		</dict>
+		<key>SafariBookmarkFolderIcon</key>
+		<dict>
+			<key>bundle</key>
+			<string>com.blacktree.Quicksilver.QSSafariPlugIn</string>
+			<key>resource</key>
+			<string>SafariBookmark.icns</string>
+		</dict>
 		<key>SafariBookmarkMenuIcon</key>
 		<dict>
 			<key>bundle</key>
