@@ -17,9 +17,9 @@
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.1.4</string>
+	<string>2.1.5</string>
 	<key>CFBundleVersion</key>
-	<string>136</string>
+	<string>137</string>
 	<key>QSActions</key>
 	<dict>
 		<key>QSSafariAddToReadingListAction</key>
@@ -248,6 +248,11 @@
 			<key>resource</key>
 			<string>ReadingList-GlassesSmall.pdf</string>
 		</dict>
+	</dict>
+	<key>QSWebBrowserMediators</key>
+	<dict>
+		<key>com.apple.Safari</key>
+		<string>QSSafariObjectHandler</string>
 	</dict>
 </dict>
 </plist>
