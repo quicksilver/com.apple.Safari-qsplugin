@@ -166,7 +166,7 @@
 	if (![type isEqualToString:@"WebBookmarkTypeProxy"]) {
 		
 		NSUInteger count = [(NSArray *)[dict objectForKey:@"Children"] count];
-		return [NSString stringWithFormat:@"%d item%@", count, ESS(count)];
+		return [NSString stringWithFormat:@"%ld item%@", (long)count, ESS(count)];
 	}
 	return nil;
 }
