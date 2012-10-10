@@ -201,6 +201,7 @@
 				<key>types</key>
 				<array>
 					<string>qs.url.search</string>
+					<string>Apple URL pasteboard type</string>
 					<string>NSStringPboardType</string>
 				</array>
 			</dict>
@@ -253,11 +254,6 @@
 	<dict>
 		<key>com.apple.Safari</key>
 		<string>QSSafariObjectHandler</string>
-	</dict>
-	<key>QSRequirements</key>
-	<dict>
-		<key>version</key>
-		<string>3936</string>
 	</dict>
 </dict>
 </plist>
