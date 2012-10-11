@@ -157,7 +157,7 @@
 		0259C573FE90428111CA0C5A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0450;
 			};
 			buildConfigurationList = 7FFF24ED085E488600266176 /* Build configuration list for PBXProject "QSSafariPlugIn" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -223,6 +223,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 14DE93C910D0D9BD00851A6F /* QSPlugIn.xcconfig */;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				PRODUCT_NAME = "Safari Plugin";
 			};
 			name = Debug;
@@ -231,6 +232,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 14DE93C910D0D9BD00851A6F /* QSPlugIn.xcconfig */;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				PRODUCT_NAME = "Safari Plugin";
 			};
 			name = Release;

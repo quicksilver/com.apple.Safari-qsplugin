@@ -112,7 +112,9 @@
 					url = [openTab URL];
 					title = [openTab name];
 					page = [QSObject URLObjectWithURL:url title:title];
-					[openPages addObject:page];
+                    if (page) {
+                        [openPages addObject:page];
+                    }
 				}
 			}
 			[object setChildren:openPages];
@@ -166,7 +168,7 @@
 	if (![type isEqualToString:@"WebBookmarkTypeProxy"]) {
 		
 		NSUInteger count = [(NSArray *)[dict objectForKey:@"Children"] count];
-		return [NSString stringWithFormat:@"%d item%@", count, ESS(count)];
+		return [NSString stringWithFormat:@"%ld item%@", (long)count, ESS(count)];
 	}
 	return nil;
 }
