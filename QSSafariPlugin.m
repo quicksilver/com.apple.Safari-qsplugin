@@ -112,7 +112,9 @@
 					url = [openTab URL];
 					title = [openTab name];
 					page = [QSObject URLObjectWithURL:url title:title];
-					[openPages addObject:page];
+                    if (page) {
+                        [openPages addObject:page];
+                    }
 				}
 			}
 			[object setChildren:openPages];
