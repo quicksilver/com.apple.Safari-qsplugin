@@ -91,7 +91,7 @@
 }
 
 - (BOOL)loadChildrenForObject:(QSObject *)object {
-	if ([[object primaryType] isEqualToString:NSFilenamesPboardType]) {
+	if ([[object primaryType] isEqualToString:QSFilePathType]) {
 		[object setChildren:[self safariChildren]];
 		return YES; 	
 	}
