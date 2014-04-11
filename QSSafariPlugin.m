@@ -91,7 +91,7 @@
 }
 
 - (BOOL)loadChildrenForObject:(QSObject *)object {
-	if ([[object primaryType] isEqualToString:NSFilenamesPboardType]) {
+	if ([[object primaryType] isEqualToString:QSFilePathType]) {
 		[object setChildren:[self safariChildren]];
 		return YES; 	
 	}
@@ -168,7 +168,7 @@
 	if (![type isEqualToString:@"WebBookmarkTypeProxy"]) {
 		
 		NSUInteger count = [(NSArray *)[dict objectForKey:@"Children"] count];
-		return [NSString stringWithFormat:@"%ld item%@", (long)count, ESS(count)];
+		return [NSString stringWithFormat:@"%ld item%@", (long)count, count ? @"s": @""];
 	}
 	return nil;
 }
