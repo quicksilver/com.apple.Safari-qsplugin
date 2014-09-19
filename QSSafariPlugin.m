@@ -60,19 +60,23 @@
 {
 	[self createSafariAndLaunch:NO];
 	if ([Safari isRunning]) {
-		SafariTab *currentTab = [[[Safari windows] objectAtIndex:0] currentTab];
-		NSString *url = [currentTab URL];
-		NSString *title = [currentTab name];
-		if (url) {
-			if ([[proxy identifier] isEqualToString:@"QSSafariFrontPageProxy"]) {
-				return [QSObject URLObjectWithURL:url title:title];
-			}
-			if ([[proxy identifier] isEqualToString:@"QSSafariSearchCurrentSite"]) {
-				NSURL *currentURL = [NSURL URLWithString:url];
-				NSString *searchShortcut = [NSString stringWithFormat:@"http://www.google.com/search?q=*** site:%@", [currentURL host]];
-				return [QSObject URLObjectWithURL:searchShortcut title:nil];
-			}
-		}
+        NSPredicate *activeWindowFilter = [NSPredicate predicateWithFormat:@"visible == YES"];
+        NSArray *active = [[Safari windows] filteredArrayUsingPredicate:activeWindowFilter];
+        if ([active count]) {
+            SafariTab *currentTab = [[active objectAtIndex:0] currentTab];
+            NSString *url = [currentTab URL];
+            NSString *title = [currentTab name];
+            if (url) {
+                if ([[proxy identifier] isEqualToString:@"QSSafariFrontPageProxy"]) {
+                    return [QSObject URLObjectWithURL:url title:title];
+                }
+                if ([[proxy identifier] isEqualToString:@"QSSafariSearchCurrentSite"]) {
+                    NSURL *currentURL = [NSURL URLWithString:url];
+                    NSString *searchShortcut = [NSString stringWithFormat:@"http://www.google.com/search?q=*** site:%@", [currentURL host]];
+                    return [QSObject URLObjectWithURL:searchShortcut title:nil];
+                }
+            }
+        }
 	}
 	return nil;
 }
