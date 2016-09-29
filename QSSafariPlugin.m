@@ -350,11 +350,11 @@
 		}
 		
 		while ([rs next]) {
-			QSObject *object = [QSObject URLObjectWithURL:[rs stringForColumn:@"url"]
-													title:[rs stringForColumn:@"title"]];
-			
-			
-			[array addObject:object];
+			NSString *title = [rs stringForColumn:@"title"];
+			if ([title length]) {
+				QSObject *object = [QSObject URLObjectWithURL:[rs stringForColumn:@"url"] title:title];
+				[array addObject:object];
+			}
 		}
 		
 		[rs close];
