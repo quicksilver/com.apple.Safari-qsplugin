@@ -1,4 +1,6 @@
 #import "QSSafariPlugin.h"
+#import "QSSafariDatabaseManager.h"
+#import "QSSafariDefines.h"
 
 @implementation QSSafariObjectHandler
 
@@ -313,14 +315,58 @@
 
 @implementation QSSafariHistoryParser
 
+- (NSString *)checkPath:(NSString *)path {
+	NSFileManager *fm = [NSFileManager defaultManager];
+	if ([[path lastPathComponent] isEqualToString:@"History.db"]) {
+		if ([fm fileExistsAtPath:path]) {
+			return path;
+		}
+	}
+	path = [[path stringByDeletingLastPathComponent] stringByAppendingPathComponent:@"History.plist"];
+	if ([fm fileExistsAtPath:path]) {
+		return path;
+	}
+	return nil;
+}
+
 - (BOOL)validParserForPath:(NSString *)path {
-    return [[path lastPathComponent] isEqualToString:@"History.plist"];
+	return [self checkPath:path] != nil;
 }
 
 - (NSArray *)objectsFromPath:(NSString *)path withSettings:(NSDictionary *)settings {
-    NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile: [path stringByStandardizingPath]];
-    NSMutableArray *array = [NSMutableArray arrayWithCapacity:1];
-    
+	path = [[self checkPath:path] stringByStandardizingPath];
+	NSMutableArray *array = [NSMutableArray arrayWithCapacity:0];
+	if ([[path lastPathComponent] isEqualToString:@"History.db"]) {
+		FMDatabase *db = [QSSafariDatabaseManager openDatabase:path];
+		if (!db) {
+			return array;
+		}
+		NSString *query = @"SELECT i.url AS url, v.title AS title FROM history_items i INNER JOIN history_visits v ON i.id=v.history_item ORDER BY v.visit_time DESC;";
+		FMResultSet *rs = [db executeQuery:query];
+		
+		if ([db hadError]) {
+			NSLog(@"Error while reading Safari history database. Error %d: %@", [db lastErrorCode], [db lastErrorMessage]);
+			return array;
+		}
+		
+		while ([rs next]) {
+			NSString *title = [rs stringForColumn:@"title"];
+			if ([title length]) {
+				QSObject *object = [QSObject URLObjectWithURL:[rs stringForColumn:@"url"] title:title];
+				[array addObject:object];
+			}
+		}
+		
+		[rs close];
+		[db close];
+		
+		return array;
+		
+	}
+	
+	// OLD Safari <v8.0 style
+    NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:path];
+	
     for (NSDictionary *child in [dict objectForKey:@"WebHistoryDates"]) {
         NSString *url = [child objectForKey:@""];
         NSString *title = [child objectForKey:@"title"];

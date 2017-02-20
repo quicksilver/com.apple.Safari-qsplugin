@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		8D1AC9700486D14A00FE50C9 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD92D38A0106425D02CA0E72 /* Cocoa.framework */; };
+		CD8D31A31C64274E000C1565 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = CD8D31981C64274E000C1565 /* FMDatabase.m */; };
+		CD8D31A41C64274E000C1565 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = CD8D319A1C64274E000C1565 /* FMDatabaseAdditions.m */; };
+		CD8D31A51C64274E000C1565 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = CD8D319C1C64274E000C1565 /* FMDatabasePool.m */; };
+		CD8D31A61C64274E000C1565 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = CD8D319E1C64274E000C1565 /* FMDatabaseQueue.m */; };
+		CD8D31A71C64274E000C1565 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = CD8D31A11C64274E000C1565 /* FMResultSet.m */; };
+		CD8D31A81C64274E000C1565 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CD8D31A21C64274E000C1565 /* Info.plist */; };
+		CD8D31AB1C642780000C1565 /* QSSafariDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CD8D31AA1C642780000C1565 /* QSSafariDatabaseManager.m */; };
 		D430360B148F21640054577A /* ScriptingBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D430360A148F21640054577A /* ScriptingBridge.framework */; };
 		D47F7AAC15B890D10018750E /* SafariBookmark.icns in Resources */ = {isa = PBXBuildFile; fileRef = D47F7AAB15B890D10018750E /* SafariBookmark.icns */; };
 		D4E7FFEA14C8B3E900D2A4DA /* Safari.app in Sources */ = {isa = PBXBuildFile; fileRef = D4303608148F21180054577A /* Safari.app */; };
@@ -36,6 +43,21 @@
 		14DE93CA10D0D9BD00851A6F /* Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		8D1AC9730486D14A00FE50C9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D1AC9740486D14A00FE50C9 /* Safari Plugin.qsplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Safari Plugin.qsplugin"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD8D31971C64274E000C1565 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabase.h; path = FMDB/src/fmdb/FMDatabase.h; sourceTree = "<group>"; };
+		CD8D31981C64274E000C1565 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabase.m; path = FMDB/src/fmdb/FMDatabase.m; sourceTree = "<group>"; };
+		CD8D31991C64274E000C1565 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabaseAdditions.h; path = FMDB/src/fmdb/FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		CD8D319A1C64274E000C1565 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseAdditions.m; path = FMDB/src/fmdb/FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		CD8D319B1C64274E000C1565 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabasePool.h; path = FMDB/src/fmdb/FMDatabasePool.h; sourceTree = "<group>"; };
+		CD8D319C1C64274E000C1565 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabasePool.m; path = FMDB/src/fmdb/FMDatabasePool.m; sourceTree = "<group>"; };
+		CD8D319D1C64274E000C1565 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabaseQueue.h; path = FMDB/src/fmdb/FMDatabaseQueue.h; sourceTree = "<group>"; };
+		CD8D319E1C64274E000C1565 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseQueue.m; path = FMDB/src/fmdb/FMDatabaseQueue.m; sourceTree = "<group>"; };
+		CD8D319F1C64274E000C1565 /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDB.h; path = FMDB/src/fmdb/FMDB.h; sourceTree = "<group>"; };
+		CD8D31A01C64274E000C1565 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMResultSet.h; path = FMDB/src/fmdb/FMResultSet.h; sourceTree = "<group>"; };
+		CD8D31A11C64274E000C1565 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMResultSet.m; path = FMDB/src/fmdb/FMResultSet.m; sourceTree = "<group>"; };
+		CD8D31A21C64274E000C1565 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = FMDB/src/fmdb/Info.plist; sourceTree = "<group>"; };
+		CD8D31A91C642780000C1565 /* QSSafariDatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSSafariDatabaseManager.h; sourceTree = "<group>"; };
+		CD8D31AA1C642780000C1565 /* QSSafariDatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSSafariDatabaseManager.m; sourceTree = "<group>"; };
+		CD8D31AC1C642AD6000C1565 /* QSSafariDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QSSafariDefines.h; sourceTree = "<group>"; };
 		D4303608148F21180054577A /* Safari.app */ = {isa = PBXFileReference; lastKnownFileType = wrapper.application; name = Safari.app; path = /Applications/Safari.app; sourceTree = "<absolute>"; };
 		D430360A148F21640054577A /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = /System/Library/Frameworks/ScriptingBridge.framework; sourceTree = "<absolute>"; };
 		D47F7AA615B88C260018750E /* Quicksilver.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Quicksilver.pch; sourceTree = "<group>"; };
@@ -114,6 +136,9 @@
 		32DBCF9E0370C38000C91783 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				CD8D31AC1C642AD6000C1565 /* QSSafariDefines.h */,
+				CD8D31A91C642780000C1565 /* QSSafariDatabaseManager.h */,
+				CD8D31AA1C642780000C1565 /* QSSafariDatabaseManager.m */,
 				E1EAB047068128A800774DFF /* QSSafariPlugIn.h */,
 				E1EAB045068128A200774DFF /* QSSafariPlugIn.m */,
 			);
@@ -123,9 +148,29 @@
 		32DBCF9F0370C38200C91783 /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				CD8D31961C64273D000C1565 /* FMDB */,
 				D4303608148F21180054577A /* Safari.app */,
 			);
 			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		CD8D31961C64273D000C1565 /* FMDB */ = {
+			isa = PBXGroup;
+			children = (
+				CD8D31971C64274E000C1565 /* FMDatabase.h */,
+				CD8D31981C64274E000C1565 /* FMDatabase.m */,
+				CD8D31991C64274E000C1565 /* FMDatabaseAdditions.h */,
+				CD8D319A1C64274E000C1565 /* FMDatabaseAdditions.m */,
+				CD8D319B1C64274E000C1565 /* FMDatabasePool.h */,
+				CD8D319C1C64274E000C1565 /* FMDatabasePool.m */,
+				CD8D319D1C64274E000C1565 /* FMDatabaseQueue.h */,
+				CD8D319E1C64274E000C1565 /* FMDatabaseQueue.m */,
+				CD8D319F1C64274E000C1565 /* FMDB.h */,
+				CD8D31A01C64274E000C1565 /* FMResultSet.h */,
+				CD8D31A11C64274E000C1565 /* FMResultSet.m */,
+				CD8D31A21C64274E000C1565 /* Info.plist */,
+			);
+			name = FMDB;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,6 +228,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD8D31A81C64274E000C1565 /* Info.plist in Resources */,
 				D47F7AAC15B890D10018750E /* SafariBookmark.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -211,8 +257,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD8D31A31C64274E000C1565 /* FMDatabase.m in Sources */,
 				D4E7FFEA14C8B3E900D2A4DA /* Safari.app in Sources */,
+				CD8D31A71C64274E000C1565 /* FMResultSet.m in Sources */,
+				CD8D31A51C64274E000C1565 /* FMDatabasePool.m in Sources */,
 				E1EAB046068128A200774DFF /* QSSafariPlugIn.m in Sources */,
+				CD8D31A41C64274E000C1565 /* FMDatabaseAdditions.m in Sources */,
+				CD8D31AB1C642780000C1565 /* QSSafariDatabaseManager.m in Sources */,
+				CD8D31A61C64274E000C1565 /* FMDatabaseQueue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
