@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "FMDatabase.h"
+@class FMDatabase;
 
 @interface QSSafariDatabaseManager : NSObject
 

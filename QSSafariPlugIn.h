@@ -1,4 +1,5 @@
 #import "Safari.h"
+#import <QSFoundation/FMDB.h>
 
 @interface QSSafariObjectHandler : QSObjectSource
 {
