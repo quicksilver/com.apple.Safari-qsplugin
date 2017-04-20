@@ -7,6 +7,7 @@
 //
 
 #import "QSSafariDatabaseManager.h"
+#import "QSSafariPlugIn.h"
 
 @implementation QSSafariDatabaseManager
 
