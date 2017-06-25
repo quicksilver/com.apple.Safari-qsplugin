@@ -335,33 +335,32 @@
 
 - (NSArray *)objectsFromPath:(NSString *)path withSettings:(NSDictionary *)settings {
 	path = [[self checkPath:path] stringByStandardizingPath];
-	NSMutableArray *array = [NSMutableArray arrayWithCapacity:0];
+	NSMutableSet *historySet = [NSMutableSet setWithCapacity:0];
 	if ([[path lastPathComponent] isEqualToString:@"History.db"]) {
 		FMDatabase *db = [QSSafariDatabaseManager openDatabase:path];
 		if (!db) {
-			return array;
+			return @[];
 		}
 		NSString *query = @"SELECT i.url AS url, v.title AS title FROM history_items i INNER JOIN history_visits v ON i.id=v.history_item ORDER BY v.visit_time DESC;";
 		FMResultSet *rs = [db executeQuery:query];
 		
 		if ([db hadError]) {
 			NSLog(@"Error while reading Safari history database. Error %d: %@", [db lastErrorCode], [db lastErrorMessage]);
-			return array;
+			return @[];
 		}
 		
 		while ([rs next]) {
 			NSString *title = [rs stringForColumn:@"title"];
 			if ([title length]) {
 				QSObject *object = [QSObject URLObjectWithURL:[rs stringForColumn:@"url"] title:title];
-				[array addObject:object];
+				[historySet addObject:object];
 			}
 		}
 		
 		[rs close];
 		[db close];
 		
-		return array;
-		
+		return [historySet allObjects];
 	}
 	
 	// OLD Safari <v8.0 style
@@ -371,9 +370,9 @@
         NSString *url = [child objectForKey:@""];
         NSString *title = [child objectForKey:@"title"];
         QSObject *object = [QSObject URLObjectWithURL:url title:title];
-        if (object) [array addObject:object];
+        if (object) [historySet addObject:object];
     }
-    return  array;
+    return  historySet;
 }
 
 @end
