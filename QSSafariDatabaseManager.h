@@ -6,8 +6,7 @@
 //
 //
 
-#import <Foundation/Foundation.h>
-#import "FMDatabase.h"
+#import <QSFoundation/FMDB.h>
 
 @interface QSSafariDatabaseManager : NSObject
 
