@@ -351,8 +351,11 @@
 		
 		while ([rs next]) {
 			NSString *title = [rs stringForColumn:@"title"];
-			if ([title length]) {
-				QSObject *object = [QSObject URLObjectWithURL:[rs stringForColumn:@"url"] title:title];
+			if (![title length]) {
+				continue;
+			}
+			QSObject *object = [QSObject URLObjectWithURL:[rs stringForColumn:@"url"] title:title];
+			if (object) {
 				[historySet addObject:object];
 			}
 		}
