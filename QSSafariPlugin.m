@@ -316,12 +316,16 @@
 @implementation QSSafariHistoryParser
 
 - (NSString *)checkPath:(NSString *)path {
+	// The plist points to the WAL since it has a more accurate modification date.
+	// We want to scan from the DB file though, so set the right path.
+	path = [path stringByReplacingOccurrencesOfString:@"-wal" withString:@""];
 	NSFileManager *fm = [NSFileManager defaultManager];
 	if ([[path lastPathComponent] isEqualToString:@"History.db"]) {
 		if ([fm fileExistsAtPath:path]) {
 			return path;
 		}
 	}
+	// compaitibility with versions before Safari 8
 	path = [[path stringByDeletingLastPathComponent] stringByAppendingPathComponent:@"History.plist"];
 	if ([fm fileExistsAtPath:path]) {
 		return path;
@@ -366,7 +370,7 @@
 		return [historySet allObjects];
 	}
 	
-	// OLD Safari <v8.0 style
+	// compaitibility with versions before Safari 8
     NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:path];
 	
     for (NSDictionary *child in [dict objectForKey:@"WebHistoryDates"]) {

@@ -123,7 +123,7 @@
 						<key>parser</key>
 						<string>QSSafariHistoryParser</string>
 						<key>path</key>
-						<string>~/Library/Safari/History.db</string>
+						<string>~/Library/Safari/History.db-wal</string>
 						<key>skipItem</key>
 						<integer>1</integer>
 					</dict>
