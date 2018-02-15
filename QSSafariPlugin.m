@@ -375,7 +375,7 @@
         QSObject *object = [QSObject URLObjectWithURL:url title:title];
         if (object) [historySet addObject:object];
     }
-    return  historySet;
+    return  [historySet allObjects];
 }
 
 @end
