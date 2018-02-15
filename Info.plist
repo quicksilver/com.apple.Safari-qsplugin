@@ -126,8 +126,6 @@
 						<string>~/Library/Safari/History.db</string>
 						<key>skipItem</key>
 						<integer>1</integer>
-						<key>watchTarget</key>
-						<true/>
 					</dict>
 					<key>source</key>
 					<string>QSFileSystemObjectSource</string>
