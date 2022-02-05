@@ -11,7 +11,6 @@
 		CD8D31AB1C642780000C1565 /* QSSafariDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CD8D31AA1C642780000C1565 /* QSSafariDatabaseManager.m */; };
 		D430360B148F21640054577A /* ScriptingBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D430360A148F21640054577A /* ScriptingBridge.framework */; };
 		D47F7AAC15B890D10018750E /* SafariBookmark.icns in Resources */ = {isa = PBXBuildFile; fileRef = D47F7AAB15B890D10018750E /* SafariBookmark.icns */; };
-		D4E7FFEA14C8B3E900D2A4DA /* Safari.app in Sources */ = {isa = PBXBuildFile; fileRef = D4303608148F21180054577A /* Safari.app */; };
 		E1EAB046068128A200774DFF /* QSSafariPlugIn.m in Sources */ = {isa = PBXBuildFile; fileRef = E1EAB045068128A200774DFF /* QSSafariPlugIn.m */; };
 /* End PBXBuildFile section */
 
@@ -21,6 +20,8 @@
 			compilerSpec = com.apple.compilers.proxy.script;
 			filePatterns = "*.app";
 			fileType = pattern.proxy;
+			inputFiles = (
+			);
 			isEditable = 1;
 			outputFiles = (
 				"$(DERIVED_FILES_DIR)/$(INPUT_FILE_BASE).h",
@@ -40,10 +41,10 @@
 		CD8D31A91C642780000C1565 /* QSSafariDatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSSafariDatabaseManager.h; sourceTree = "<group>"; };
 		CD8D31AA1C642780000C1565 /* QSSafariDatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSSafariDatabaseManager.m; sourceTree = "<group>"; };
 		CD8D31AC1C642AD6000C1565 /* QSSafariDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QSSafariDefines.h; sourceTree = "<group>"; };
-		D4303608148F21180054577A /* Safari.app */ = {isa = PBXFileReference; lastKnownFileType = wrapper.application; name = Safari.app; path = /Applications/Safari.app; sourceTree = "<absolute>"; };
 		D430360A148F21640054577A /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = /System/Library/Frameworks/ScriptingBridge.framework; sourceTree = "<absolute>"; };
 		D47F7AA615B88C260018750E /* Quicksilver.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Quicksilver.pch; sourceTree = "<group>"; };
 		D47F7AAB15B890D10018750E /* SafariBookmark.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = SafariBookmark.icns; sourceTree = "<group>"; };
+		D4976BE127A45C3D00612F7D /* Safari.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Safari.h; sourceTree = "<group>"; };
 		DD92D38A0106425D02CA0E72 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		E1EAB045068128A200774DFF /* QSSafariPlugIn.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = QSSafariPlugIn.m; sourceTree = "<group>"; };
 		E1EAB047068128A800774DFF /* QSSafariPlugIn.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = QSSafariPlugIn.h; sourceTree = "<group>"; };
@@ -67,7 +68,6 @@
 			children = (
 				14DE93C010D0D9A600851A6F /* Configuration */,
 				32DBCF9E0370C38000C91783 /* Classes */,
-				32DBCF9F0370C38200C91783 /* Other Sources */,
 				0259C582FE90428111CA0C5A /* Resources */,
 				1ED78706FE9D4A0611CA0C5A /* Products */,
 				2E58F364FFB232C311CA0CBA /* Frameworks */,
@@ -78,6 +78,7 @@
 		0259C582FE90428111CA0C5A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D4976BE127A45C3D00612F7D /* Safari.h */,
 				D47F7AAB15B890D10018750E /* SafariBookmark.icns */,
 				8D1AC9730486D14A00FE50C9 /* Info.plist */,
 			);
@@ -127,14 +128,6 @@
 			name = Classes;
 			sourceTree = "<group>";
 		};
-		32DBCF9F0370C38200C91783 /* Other Sources */ = {
-			isa = PBXGroup;
-			children = (
-				D4303608148F21180054577A /* Safari.app */,
-			);
-			name = "Other Sources";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -142,7 +135,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7FFF24E9085E488600266176 /* Build configuration list for PBXNativeTarget "Safari Plugin" */;
 			buildPhases = (
-				E1022B2806B3475D00299BEC /* Update Version and Documentation */,
 				8D1AC9660486D14A00FE50C9 /* Resources */,
 				8D1AC96A0486D14A00FE50C9 /* Sources */,
 				8D1AC96E0486D14A00FE50C9 /* Frameworks */,
@@ -165,6 +157,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0450;
+				TargetAttributes = {
+					8D1AC9600486D14A00FE50C9 = {
+						ProvisioningStyle = Manual;
+					};
+				};
 			};
 			buildConfigurationList = 7FFF24ED085E488600266176 /* Build configuration list for PBXProject "QSSafariPlugIn" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -196,29 +193,11 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		E1022B2806B3475D00299BEC /* Update Version and Documentation */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Update Version and Documentation";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-			shellPath = /bin/sh;
-			shellScript = "\"$QS_BUILD_ROOT/Tools/bltrversion\"";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		8D1AC96A0486D14A00FE50C9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4E7FFEA14C8B3E900D2A4DA /* Safari.app in Sources */,
 				E1EAB046068128A200774DFF /* QSSafariPlugIn.m in Sources */,
 				CD8D31AB1C642780000C1565 /* QSSafariDatabaseManager.m in Sources */,
 			);
