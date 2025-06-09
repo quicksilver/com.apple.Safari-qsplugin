@@ -9,7 +9,7 @@
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.blacktree.Quicksilver.QSSafariPlugIn</string>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -17,9 +17,9 @@
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.5.0</string>
+	<string>2.5.1</string>
 	<key>CFBundleVersion</key>
-	<string>148</string>
+	<string>149</string>
 	<key>QSActions</key>
 	<dict>
 		<key>QSSafariAddToReadingListAction</key>
@@ -148,16 +148,6 @@
 			<key>QSSafariActionProvider</key>
 			<string>QSSafariActionProvider</string>
 		</dict>
-		<key>QSTypeDefinitions</key>
-		<dict>
-			<key>com.apple.Safari.url</key>
-			<dict>
-				<key>icon</key>
-				<string>DefaultBookmarkIcon</string>
-				<key>name</key>
-				<string>URLs from Safari</string>
-			</dict>
-		</dict>
 		<key>QSBundleChildHandlers</key>
 		<dict>
 			<key>com.apple.Safari</key>
@@ -212,6 +202,16 @@
 					<string>Apple URL pasteboard type</string>
 					<string>NSStringPboardType</string>
 				</array>
+			</dict>
+		</dict>
+		<key>QSTypeDefinitions</key>
+		<dict>
+			<key>com.apple.Safari.url</key>
+			<dict>
+				<key>icon</key>
+				<string>DefaultBookmarkIcon</string>
+				<key>name</key>
+				<string>URLs from Safari</string>
 			</dict>
 		</dict>
 		<key>QSWebBrowserMediators</key>

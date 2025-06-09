@@ -1,4 +1,4 @@
-#import "QSSafariPlugin.h"
+#import "QSSafariPlugIn.h"
 #import "QSSafariDatabaseManager.h"
 #import "QSSafariDefines.h"
 
@@ -22,17 +22,11 @@
     return self;
 }
 
-- (void)dealloc {
-    [Safari release];
-	[iconMap release];
-    [super dealloc];
-}
-
 - (void)createSafariAndLaunch:(BOOL)okToLaunch
 {
 	if (okToLaunch || QSAppIsRunning(@"com.apple.Safari")) {
 		if (!Safari) {
-			Safari = [[SBApplication applicationWithBundleIdentifier:@"com.apple.Safari"] retain];
+			Safari = [SBApplication applicationWithBundleIdentifier:@"com.apple.Safari"];
 		}
 	}
 }
@@ -137,7 +131,7 @@
 	NSArray *children = nil;
 	
 	if (![type isEqualToString:@"WebBookmarkTypeProxy"]) {
-		id parser = [[[QSSafariBookmarksParser alloc] init] autorelease];
+		id parser = [[QSSafariBookmarksParser alloc] init];
 		children = [parser safariBookmarksForDict:dict deep:NO includeProxies:YES];
 	} else if ([ident isEqualToString:@"History"]) {
 		QSCatalogEntry *theEntry = [QSLib entryForID:@"QSPresetSafariHistory"];
@@ -180,11 +174,11 @@
 }
 
 - (NSArray *)safariChildren {
-	id parser = [[[QSSafariBookmarksParser alloc] init] autorelease];
+	id parser = [[QSSafariBookmarksParser alloc] init];
 	
 	NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile: [@"~/Library/Safari/Bookmarks.plist" stringByStandardizingPath]];
 	
-	NSMutableArray *children = [[[parser safariBookmarksForDict:dict deep:NO includeProxies:YES] mutableCopy] autorelease];
+	NSMutableArray *children = [[parser safariBookmarksForDict:dict deep:NO includeProxies:YES] mutableCopy];
 	[children addObject:[self currentPagesParent]];
 	return children;
 }
@@ -294,7 +288,7 @@
 	
 	//	if ([dict objectForKey:@"WebBookmarkAutoTab"])
 	
-	NSMutableArray *urls = [[[[dict objectForKey:@"Children"] valueForKey:@"URLString"] mutableCopy] autorelease];
+	NSMutableArray *urls = [[[dict objectForKey:@"Children"] valueForKey:@"URLString"] mutableCopy];
 	[urls removeObject:[NSNull null]];
 	//NSLog(@"urls %@", urls);
 	[group setObject:urls forType:QSURLType];
