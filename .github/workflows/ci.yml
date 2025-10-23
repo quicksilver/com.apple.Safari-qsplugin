@@ -86,7 +86,7 @@ jobs:
         log "Using default scheme: ${scheme}"
 
         # Absence of a project can still build, but will error if `-project` is specified
-        opts=(-configuration "${configuration}" -scheme "${scheme}")
+        opts=(-configuration "${configuration}" -scheme "${scheme}" -destination 'generic/platform=macos')
         if [[ -n "${project}" ]]; then
           opts+=(-project "${project}")
         fi
