@@ -9,3 +9,9 @@ jobs:
     runs-on: macos-latest
     steps:
     - uses: n8henrie/qs-plugin-action@master
+      env:
+        MACOS_CERTIFICATE: ${{ secrets.MACOS_CERTIFICATE }}
+        MACOS_CERTIFICATE_PASSWORD: ${{ secrets.MACOS_CERTIFICATE_PASSWORD }}
+        KEYCHAIN_PASSWORD: ${{ secrets.KEYCHAIN_PASSWORD }}
+
+        SIGNING_IDENTITY: ${{ secrets.SIGNING_IDENTITY }}
