@@ -4,6 +4,18 @@ The Safari plug-in allows you to index your Safari bookmarks and history. You ca
 
 It also provides access to all currently open pages. Select "Open Web Pages" in the first pane and hit → or /.
 
+As of 2.5.3 the history is limited by default to the most recent 200 items, which resolves an issue that results in tremendous memory consumption.
+
+To adjust this number:
+
+1. Go to ~/Library/Application Support/Quicksilver/PlugIns/
+1. find `Safari Plugin.qsplugin`
+1. right-click -> "Show Package Contents"
+1. then open `Contents/Info.plist`
+1. In there, find the entry QSPresetAdditions -> Item 0 -> children -> Item 1 -> settings -> historySize
+1. Change the number to something different
+1. Restart Quicksilver and rescan the catalog
+
 ### Proxy Objects ###
 
 There are two proxy objects: Current Web Page and Current Website

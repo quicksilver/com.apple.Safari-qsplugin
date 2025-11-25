@@ -339,9 +339,9 @@
 		if (!db) {
 			return @[];
 		}
-		NSString *query = @"SELECT i.url AS url, v.title AS title FROM history_items i INNER JOIN history_visits v ON i.id=v.history_item ORDER BY v.visit_time DESC;";
-		FMResultSet *rs = [db executeQuery:query];
-		
+		NSString *query = @"SELECT i.url AS url, v.title AS title FROM history_items i INNER JOIN history_visits v ON i.id=v.history_item ORDER BY v.visit_time DESC LIMIT ?;";
+		FMResultSet *rs = [db executeQuery:query, [settings objectForKey:@"historySize"]];
+
 		if ([db hadError]) {
 			NSLog(@"Error while reading Safari history database. Error %d: %@", [db lastErrorCode], [db lastErrorMessage]);
 			return @[];
