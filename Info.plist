@@ -17,9 +17,9 @@
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.5.2</string>
+	<string>2.5.4</string>
 	<key>CFBundleVersion</key>
-	<string>150</string>
+	<string>152</string>
 	<key>QSActions</key>
 	<dict>
 		<key>QSSafariAddToReadingListAction</key>
@@ -126,6 +126,8 @@
 						<string>~/Library/Safari/History.db-wal</string>
 						<key>skipItem</key>
 						<integer>1</integer>
+						<key>historySize</key>
+						<integer>1000</integer>
 					</dict>
 					<key>source</key>
 					<string>QSFileSystemObjectSource</string>
